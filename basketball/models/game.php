@@ -39,7 +39,7 @@ class Game{
 
   public function insert($box){
     //INSERTのSQL文
-    $sql = 'INSERT INTO `matches` SET '
+    $sql = 'INSERT INTO `matches` SET ';
     mysqli_query($this->dbconnect,$sql) or die(mysqli_query($this->dbconnect));
   }
 
