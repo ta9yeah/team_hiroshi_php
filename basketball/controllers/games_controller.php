@@ -17,8 +17,13 @@ switch ($action) {
     $games->create();
     break;
 
+//編集画面へ
   case 'edit':
-    $games->edit();
+    $games->edit($id);
+    break;
+//編集内容確認画面へ
+  case 'edit_check':
+    $games->edit_check();
     break;
 
   case 'destroy':
@@ -64,6 +69,8 @@ switch ($action) {
     private $id = -1;
     //$boxは試合作成データ
     private $box = '';
+    private $edit ='';
+    private $edit_check ='';
 
     //コンストラクタ
     public function __construct(){
@@ -121,8 +128,31 @@ switch ($action) {
     }
 
     //編集ページを表示
-    public function edit(){
-      echo 'edit';
+    public function edit($id){
+      
+      $this->id=$id;
+      $edit_game = $this->Game->view($id);
+      var_dump($edit_game);
+      $this->view_options = compact('edit_game');
+
+      $this->action="edit";
+      $this->display();
+
+      echo 'games_controller.phpのエコーedit';
+    }
+
+    //編集内容チェック画面表示
+    public function edit_check(){
+      $edit = $_POST;
+    //edit内容受領確認
+      var_dump($edit);
+
+      $this->view_options = compact('edit');
+
+      $this->action="edit_check";
+      $this->display();
+
+      echo "function edit_check";
     }
 
     //削除
