@@ -7,55 +7,76 @@ $edit_check = $this->view_options['edit'];
 
 var_dump($edit_check);
 
-foreach ($edit_check as $row){
-echo $row['id'];
-echo $row['date'];
+echo $edit_check['id']."</br>";
+echo $edit_check['date']."</br>"; 
+echo $edit_check['master_id'];?>
+</br>
 
+date</br>
+<?php echo $edit_check['date']; ?>" /></br>
+start time</br>
+<?php echo $edit_check['start_time']; ?>"</br>
+end time</br>
+<?php echo $edit_check['end_time']; ?>"</br></br>
 
-?>
-<!-- 
-<form action="update" method="post" enctype="multipart/form-data">
-<input type="hidden" name="id" value="<?php echo $row['id']; ?>" /></br>
+deadline date</br>
+<?php echo $edit_check['deadline_date']; ?></br>
+deadline time</br>
+<?php echo $edit_check['deadline_time']; ?></br></br>
 
-date
-<input type="hidden" name="date" value="<?php echo $row['date']; ?>" /></br>
-start time
-<input type="hidden" name="start_time" value="<?php echo $row['start_time']; ?>" /></br>
-end time
-<input type="hidden" name="end_time" value="<?php echo $row['end_time']; ?>" /></br></br>
+title</br>
+<?php echo $edit_check['title']; ?></br>
+comment</br>
+<?php echo $edit_check['comment']; ?></br></br>
 
-deadline date
-<input type="hidden" name="deadline_date" value="<?php echo $row['deadline_date']; ?>" /></br>
-deadline time
-<input type="hidden" name="deadline_time" value="<?php echo $row['deadline_time']; ?>" /></br></br>
+game type</br>
+<?php echo $edit_check['type']; ?></br>
+Player wants level</br>
+<?php echo $edit_check['level']; ?></br></br>
 
-title
-<input type="hidden" name="title" value="<?php echo $row['title']; ?>" /></br>
-comment
-<input type="hidden" name="comment" value="<?php echo $row['comment']; ?>" /></br></br>
+people min</br>
+<?php echo $edit_check['people_min']; ?></br>
+people max</br>
+<?php echo $edit_check['people_max']; ?></br></br>
 
-game type
-<input type="hidden" name="type" value="<?php echo $row['type']; ?>" /></br>
-Player wants level
-<input type="hidden" name="level" value="<?php echo $row['level']; ?>" /></br></br>
+place name</br>
+<?php echo $edit_check['place_name']; ?></br>
+place type</br>
+<?php echo $edit_check['place_type']; ?></br>
+address</br>
+<?php echo $edit_check['address']; ?></br>
+address url</br>
+<?php echo $edit_check['address_url']; ?></br></br>
 
-people min
-<input type="hidden" name="people_min" value="<?php echo $row['people_min']; ?>" /></br>
-people max
-<input type="hidden" name="people_max" value="<?php echo $row['people_max']; ?>" /></br></br>
+<p>チェックしたら送信</p>
 
-place name
-<input type="hidden" name="place_name" value="<?php echo $row['place_name']; ?>" /></br>
-place type
-<input type="hidden" name="place_type" value="<?php echo $row['place_type']; ?>" /></br>
-address
-<input type="hidden" name="address" value="<?php echo $row['address']; ?>" /></br>
-address url
-<input type="hidden" name="address_url" value="<?php echo $row['address_url']; ?>" /></br></br>
+<form action="edit_do" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="id" value="<?php echo $edit_check['id'] ?>" />
+	<input type="hidden" name="date" size="100" value="<?php echo $edit_check['date']; ?>" />
+	<input type="hidden" name="start_time" size="100" value="<?php echo $edit_check['start_time']; ?>" />
+	<input type="hidden" name="end_time" size="100" value="<?php echo $edit_check['end_time']; ?>" />
 
-<input type="submit" value="Update!!" /></br>
+	<input type="hidden" name="deadline_date" size="100" value="<?php echo $edit_check['deadline_date']; ?>" />
+	<input type="hidden" name="deadline_time" size="100" value="<?php echo $edit_check['deadline_time']; ?>" />
+
+	<input type="hidden" name="title" size="100" value="<?php echo $edit_check['title']; ?>" />
+	<input type="hidden" name="comment" size="100" value="<?php echo $edit_check['comment']; ?>" />
+
+	<input type="hidden" name="type" size="100" value="<?php echo $edit_check['type']; ?>" />
+	<input type="hidden" name="level" size="100" value="<?php echo $edit_check['level']; ?>" />
+
+	<input type="hidden" name="people_min" size="100" value="<?php echo $edit_check['people_min']; ?>" />
+	<input type="hidden" name="people_max" size="100" value="<?php echo $edit_check['people_max']; ?>" />
+
+	<input type="hidden" name="place_name" size="100" value="<?php echo $edit_check['place_name']; ?>" />
+	<input type="hidden" name="place_type" size="100" value="<?php echo $edit_check['place_type']; ?>" />
+	<input type="hidden" name="address" size="100" value="<?php echo $edit_check['address']; ?>" />
+	<input type="hidden" name="address_url" size="100" value="<?php echo $edit_check['address_url']; ?>" />
+
+	<input type="submit" value="UPDATE" /></br>
+
 </form>
- -->
+
 <?php
-}
+
 ?>

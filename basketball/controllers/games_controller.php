@@ -26,6 +26,10 @@ switch ($action) {
     $games->edit_check();
     break;
 
+  case 'edit_do':
+    $games->edit_do();
+    break;
+
   case 'destroy':
     $games->destroy();
     break;
@@ -153,6 +157,10 @@ switch ($action) {
       $this->display();
 
       echo "function edit_check";
+    }
+
+    public function edit_do(){
+      $edit
     }
 
     //削除
