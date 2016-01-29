@@ -13,11 +13,11 @@ echo $edit_check['master_id'];?>
 </br>
 
 date</br>
-<?php echo $edit_check['date']; ?>" /></br>
+<?php echo $edit_check['date']; ?></br>
 start time</br>
-<?php echo $edit_check['start_time']; ?>"</br>
+<?php echo $edit_check['start_time']; ?></br>
 end time</br>
-<?php echo $edit_check['end_time']; ?>"</br></br>
+<?php echo $edit_check['end_time']; ?></br></br>
 
 deadline date</br>
 <?php echo $edit_check['deadline_date']; ?></br>

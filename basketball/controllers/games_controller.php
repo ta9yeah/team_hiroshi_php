@@ -161,20 +161,24 @@ switch ($action) {
 
     //編集内容チェック画面表示
     public function edit_check(){
+      echo "function edit_check";
       $edit = $_POST;
     //edit内容受領確認
-      var_dump($edit);
+      //var_dump($edit);
 
       $this->view_options = compact('edit');
 
       $this->action="edit_check";
       $this->display();
 
-      echo "function edit_check";
     }
 
     public function edit_do(){
-      $edit
+      $this->Game->update($_POST);
+
+    //試合一覧に飛ぶ
+      header("Location:index");
+      exit();
     }
 
     //削除
