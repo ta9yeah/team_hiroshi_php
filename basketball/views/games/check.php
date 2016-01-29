@@ -3,7 +3,6 @@ echo '試合チェックページ';
 $box = $_POST;
 ?>
 
-<form action="create2" method="post">
   <p>date</p>
   <?php echo $box['date'];?>
   <br />
@@ -136,7 +135,8 @@ $box = $_POST;
   <br />
   <p>注意事項</p>
   <br />
-
+<form action="create2" method="post">
+<!--hiddenで渡す-->
   <input type="submit" value="CREATE MATCH">
   <input type="button" onclick="history.back()" value="BACK">
 </form>
