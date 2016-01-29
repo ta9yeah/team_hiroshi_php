@@ -42,6 +42,11 @@ switch ($action) {
     $game->update();
     break;
 
+  case 'check':
+    $games->check();
+    break;
+
+
   case 'delete':
     $game->delete();
     break;
@@ -73,6 +78,7 @@ switch ($action) {
     private $id = -1;
     //$boxは試合作成データ
     private $box = '';
+    private $box2 = '';
     private $edit ='';
     private $edit_check ='';
 
@@ -114,21 +120,29 @@ switch ($action) {
     //試合作成画面を表示
     public function create(){
       echo 'create';
+
+      $this->action='create';
       $this->display();
       
     }
     //試合を作成する
-    public function create2(){
-      echo 'create2';
-      $box = $_POST;
+    public function check(){
+      echo 'check';
+      //$box = $_POST;
       //データが入っているか確認する
-      var_dump($box);
-      //insert メソッドの呼び出し
-      $this->Game->insert($box);
-
+      //var_dump($box);
       //試合チェックに飛ぶ
       $this->action='check';
       $this->display();
+    }
+    //試合を作成する
+    public function create2(){
+      $box2 = $_POST; 
+      //var_dump($box2);
+      //insert メソッドの呼び出し
+      $this->Game->insert($box2);
+      //試合一覧に飛ぶ
+      header('Location:index');
     }
 
     //編集ページを表示

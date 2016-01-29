@@ -39,7 +39,22 @@ class Game{
 
   public function insert($box){
     //INSERTのSQL文
-    $sql = 'INSERT INTO `matches` SET ';
+    $sql = 'INSERT INTO `matches` SET master_id=1, date="'.$box2['date'].'",
+                                      start_time="'.$box2['start_time'].'", 
+                                      end_time="'.$box2['end_time'].'",
+                                      deadline_date="'.$box2['deadline_date'].'",
+                                      deadline_time="'.$box2['deadline_time'].'",
+                                      title="'.$box2['title'].'",
+                                      comment="'.$box2['comment'].'",
+                                      type="'.$box2['type'].'",
+                                      level="'.$box2['level'].'",
+                                      people_min="'.$box2['people_min'].'",
+                                      people_max="'.$box2['people_max'].'",
+                                      place_name="'.$box2['place_name'].'",
+                                      place_type="'.$box2['place_type'].'",
+                                      address="'.$box2['address'].'",
+                                      address_url="'.$box2['address_url'].'",
+                                      created=NOW();';
     mysqli_query($this->dbconnect,$sql) or die(mysqli_query($this->dbconnect));
   }
 
