@@ -184,7 +184,8 @@ switch ($action) {
     //削除
     public function destroy(){
       echo 'destroy';
-      //削除した後にどこに飛ぶか？
+      //削除した後に一覧に飛ぶ
+      header('Location:index');
     }
 
     private function display(){

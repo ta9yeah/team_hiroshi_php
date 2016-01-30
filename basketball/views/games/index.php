@@ -27,7 +27,6 @@ foreach ($all_games as $row) {
 ?>
 <a href="create">試合作成</a>
 <a href="show/<?php echo $row['id']; ?>">試合詳細</a>
-<a href="edit/<?php echo $row['id'];?>">試合編集</a>
 <br />
 <br />
 
