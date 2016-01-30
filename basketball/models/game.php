@@ -37,9 +37,9 @@ class Game{
     return $return;
   }
 
-  public function insert($box){
+  public function insert($box2){
     //INSERTのSQL文
-    $sql = 'INSERT INTO `matches` SET master_id=1, date="'.$box2['date'].'",
+    $sql = 'INSERT INTO `matches` SET master_id=1,date="'.$box2['date'].'",
                                       start_time="'.$box2['start_time'].'", 
                                       end_time="'.$box2['end_time'].'",
                                       deadline_date="'.$box2['deadline_date'].'",
@@ -55,7 +55,7 @@ class Game{
                                       address="'.$box2['address'].'",
                                       address_url="'.$box2['address_url'].'",
                                       created=NOW();';
-    mysqli_query($this->dbconnect,$sql) or die(mysqli_query($this->dbconnect));
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
   }
 
   public function update($id){
@@ -68,7 +68,7 @@ class Game{
                                 people_max="'.$id['people_max'].'",place_name="'.$id['place_name'].'",
                                 place_type="'.$id['place_type'].'",address="'.$id['address'].'",address_url="'.$id['address_url'].'",
                                 modified=NOW() WHERE `id` = '.$id['id'].';';
-    mysqli_query($this->dbconnect,$sql) or die(mysqli_query($this->dbconnect));
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
   }
 
   public function delete(){

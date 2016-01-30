@@ -135,8 +135,22 @@ $box = $_POST;
   <br />
   <p>注意事項</p>
   <br />
-<form action="create2" method="post">
-<!--hiddenで渡す-->
+<form action="create2" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="date" value="<?php echo $box['date'];?>"　/>
+  <input type="hidden" name="start_time" value="<?php echo $box['start_time'];?>" />
+  <input type="hidden" name="end_time" value="<?php echo $box['end_time'];?>" />
+  <input type="hidden" name="deadline_date" value="<?php echo $box['deadline_date'];?>" />
+  <input type="hidden" name="deadline_time" value="<?php echo $box['deadline_time'];?>" />
+  <input type="hidden" name="title" value="<?php echo $box['title'];?>" />
+  <input type="hidden" name="comment" value="<?php echo $box['comment'];?>" />
+  <input type="hidden" name="type" value="<?php echo $box['type'];?>" />
+  <input type="hidden" name="level" value="<?php echo $box['level'];?>" />
+  <input type="hidden" name="people_min" value="<?php echo $box['people_min'];?>" />
+  <input type="hidden" name="people_max" value="<?php echo $box['people_max'];?>" />
+  <input type="hidden" name="place_name" value="<?php echo $box['place_name'];?>" />
+  <input type="hidden" name="place_type" value="<?php echo $box['place_type'];?>" />
+  <input type="hidden" name="address" value="<?php echo $box['address'];?>" />
+  <input type="hidden" name="address" value="<?php echo $box['address_url'];?>" />
   <input type="submit" value="CREATE MATCH">
   <input type="button" onclick="history.back()" value="BACK">
 </form>
