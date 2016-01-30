@@ -58,8 +58,17 @@ class Game{
     mysqli_query($this->dbconnect,$sql) or die(mysqli_query($this->dbconnect));
   }
 
-  public function update(){
-
+  public function update($id){
+    //editによる編集UPDATEのSQL文
+    $sql = 'UPDATE `matches` SET id="'.$id['id'].'",date="'.$id['date'].'",
+                                start_time="'.$id['start_time'].'",end_time="'.$id['end_time'].'",
+                                deadline_date="'.$id['deadline_date'].'",deadline_time="'.$id['deadline_time'].'",
+                                title="'.$id['title'].'",comment="'.$id['comment'].'",type="'.$id['type'].'",
+                                level="'.$id['level'].'",people_min="'.$id['people_min'].'",
+                                people_max="'.$id['people_max'].'",place_name="'.$id['place_name'].'",
+                                place_type="'.$id['place_type'].'",address="'.$id['address'].'",address_url="'.$id['address_url'].'",
+                                modified=NOW() WHERE `id` = '.$id['id'].';';
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_query($this->dbconnect));
   }
 
   public function delete(){
