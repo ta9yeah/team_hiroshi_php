@@ -71,7 +71,10 @@ class Game{
     mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
   }
 
-  public function delete(){
+  public function delete($id){
+    //deleteによる編集UPDATEのSQL文(論理削除)　statusの部分を２にする作業
+    $sql = 'UPDATE `matches` SET `status_flag`=2 WHERE `id` ='.$id.';';
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
 
   }
   

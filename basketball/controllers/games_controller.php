@@ -31,7 +31,7 @@ switch ($action) {
     break;
 
   case 'destroy':
-    $games->destroy();
+    $games->destroy($id);
     break;
 
   case 'view':
@@ -182,10 +182,12 @@ switch ($action) {
     }
 
     //削除
-    public function destroy(){
-      echo 'destroy';
-      //削除した後に一覧に飛ぶ
+    public function destroy($id){
+      $this->Game->delete($id);
+      //論理削除した後に一覧に飛ぶ
+      exit();
       header('Location:index');
+      
     }
 
     private function display(){
