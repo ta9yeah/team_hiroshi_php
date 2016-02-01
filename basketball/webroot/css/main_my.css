@@ -1,0 +1,165 @@
+/* main my stlye css */
+
+/* common */
+.btn {
+    border-radius: 30px;
+}
+
+/* headerwrap */
+#headerwrap{
+	/*background:url(../img/entrance_img_01.jpg) no-repeat center top;*/
+	background-color: #222;
+	background-size: cover;
+    margin-top: -50px;
+    min-height: 660px;
+}
+#headerwrap h1{
+    margin-top: 58px;
+    color: #fff;
+    font-size: 90px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+#headerwrap .catch-copy h2{
+    color: #fff;
+    font-size: 34px;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+#headerwrap .signup h2{
+	font-size: 32px;
+}
+#headerwrap .catch-copy h2{
+	margin-top: 0;
+}
+#headerwrap i {
+    font-size: 24px;
+}
+
+header a{ color: #fff;}
+
+
+/* 
+    header login css_my
+*/
+@media screen and (min-width: 768px){
+    .modal-dialog { width: 464px;}
+}
+
+.nav-center{ text-align: center;}
+.nav-right { text-align: right;}
+header div div:nth-child(1){ background-color: #336BF4}
+header div div:nth-child(2){ background-color: #005FF3}
+header div div:nth-child(3){ background-color: #003DF3}
+header div div:nth-child(odd){ padding: 0 4%;}
+header .row div {
+    height: 48px;
+    line-height: 48px;
+}
+
+/*
+    login box
+*/
+.modal-dialog{
+    float: right;
+    margin: 0;
+}
+.loginmodal-container{
+    margin-right: 4%;
+}
+.loginmodal-container input[type=text], input[type=password]{
+    height: 34px;
+}
+/* signup form */
+.btn-primary {   
+    background-color: #005FF3;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc 
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+.signup .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+.signup .social-buttons{
+    margin:12px 0    
+}
+.signup .social-buttons a{
+    width: 90%;
+}
+.signup .form-group {
+    margin-bottom: 10px;
+}
+#keep-login {
+    float: none;
+}
+#headerwrap .signup-copy h2{
+    font-size: 34px;
+    margin-top: 34px;
+    margin-bottom: 24px;
+}
+.signup p {
+    margin-top: 62px;
+    line-height: 18px;
+    margin-bottom: 18px;
+    color: #fff;
+}
+
+/* login sns*/
+.social-box{ margin-top: 23px;}
+#headerwrap i.fa-facebook {
+    font-size: 20px;
+    padding-right: 12px;
+}
+#headerwrap i.fa-twitter {
+    font-size: 20px;
+    margin-left: -12px;
+    padding-right: 12px;
+}
+.fa-angle-down {
+    margin-top: 28px;
+    position: relative;
+    z-index: 10;
+
+
+}
+.fa-angle-down:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: -14px;
+    left: -17px;
+    width: 50px;
+    height: 50px;
+    background-color: #003DF3;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

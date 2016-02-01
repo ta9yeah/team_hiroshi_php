@@ -1,0 +1,37 @@
+.photo
+{
+  height: 1000px;
+  width: 400px;
+  float: left;
+  padding: 30px 30px;
+}
+
+/*contents-bottomの<h1>のmargin-bottomプロパティを30pxにしてください。*/
+.contents-bottom h1
+{
+  margin-bottom: 30px;
+}
+
+th, td
+{
+  border-bottom:1px dashed #ccc;
+  border: 1px solid #808080;
+  /*上下のpaddingを10px 左右のpaddingを60px にしてください*/
+  padding: 10px 10px;
+  text-align: center;
+}
+
+table
+{
+  color: #fff;
+  border-collapse: collapse;
+  margin: 30px;
+
+}
+
+.game_create
+{
+	margin: 30px;
+	padding-bottom: 30px;
+	text-align: right;
+}
