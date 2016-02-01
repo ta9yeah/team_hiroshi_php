@@ -8,19 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link rel="shortcut icon" href="">
 
     <title>Team Hiroshi</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/common/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
-    <link href="assets/css/login.css" rel="stylesheet">
-	<link href="assets/css/main_my.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/common/main.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/common/login.css" rel="stylesheet">
+	<link href="/basketball/webroot/css/main_my.css" rel="stylesheet">
 
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/basketball/webroot/fonts/font-awesome.min.css" rel="stylesheet">
 
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
@@ -31,7 +31,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     
-    <script src="assets/js/modernizr.custom.js"></script>
+    <script src="/basketball/webroot/js/modernizr.custom.js"></script>
     
   </head>
 
