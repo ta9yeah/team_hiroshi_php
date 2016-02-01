@@ -185,8 +185,7 @@ switch ($action) {
     public function destroy($id){
       $this->Game->delete($id);
       //論理削除した後に一覧に飛ぶ
-      exit();
-      header('Location:index');
+      header('Location:../index');
       
     }
 
