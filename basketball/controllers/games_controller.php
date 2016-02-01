@@ -5,10 +5,15 @@ require('models/'.changesingular($resource).'.php');
 $games = new Gamescontroller();
 
 switch ($action) {
+//エントランス
+  case 'entrance':
+    $games->entrance();
+    break;
+//試合一覧
   case 'index':
     $games->index();
     break;
-  
+//試合詳細
   case 'show':
     $games->show($id);
     break;
@@ -90,8 +95,8 @@ switch ($action) {
        $this->view_options = array();
        $this->Game = $game;
     }
-
-    // 試合一覧画面
+    
+    //試合一覧画面
     public function index(){
       //処理
       $all_games = $this->Game->findAll();
@@ -100,6 +105,17 @@ switch ($action) {
     
       $this->display();
     }
+
+    //エントランス画面
+    public function entrance(){
+      $select_games = $this->Game->selectGame();
+
+      $this->view_options = compact('select_games');
+
+      $this->action = 'entrance';
+
+      $this->display();
+    } 
 
     //試合詳細画面
     public function show($id){

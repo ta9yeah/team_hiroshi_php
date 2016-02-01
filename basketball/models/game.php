@@ -12,9 +12,8 @@ class Game{
     //初期化処理
     $this->dbconnect = $db;
   }
-
   //表示
-   public function findAll(){
+  public function findAll(){
     $return = array();
     $sql = 'select * from `matches` ;';
     $results = mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
@@ -23,7 +22,18 @@ class Game{
       $return[] = $row;
     }
     return $return;
-   }
+  }
+  //entrance
+  public function selectGame(){
+    $return  = array();
+    $sql     = 'SELECT * FROM `matches` LIMIT 3';
+    $results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
+
+    while($row = mysqli_fetch_assoc($results)){
+      $return[] = $row;
+    }
+    return $return;
+  }
 
   public function view($value){
     //DBアクセス処理
