@@ -208,12 +208,12 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
-	<script src="assets/js/masonry.pkgd.min.js"></script>
-	<script src="assets/js/imagesloaded.js"></script>
-    <script src="assets/js/classie.js"></script>
-	<script src="assets/js/AnimOnScroll.js"></script>
+    <script src="/basketball/webroot/js/bootstrap.min.js"></script>
+    <script src="/basketball/webroot/js/main.js"></script>
+	<script src="/basketball/webroot/js/masonry.pkgd.min.js"></script>
+	<script src="/basketball/webroot/js/imagesloaded.js"></script>
+    <script src="/basketball/webroot/js/classie.js"></script>
+	<script src="/basketball/webroot/js/AnimOnScroll.js"></script>
 	<script>
 		new AnimOnScroll( document.getElementById( 'grid' ), {
 			minDuration : 0.4,
