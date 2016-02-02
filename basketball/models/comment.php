@@ -38,27 +38,21 @@ class Comment{
   }
 
   public function insert($comment){
-
-    // $id = $this->view_options['id'];
-    // $comment = $this->view_options[$_POST];
     //INSERTのSQL文
-    $sql = 'INSERT INTO `comments` SET user_id="'.$comment['user_id'].'", match_id="'.$comment['match_id'].'",
+    $sql = 'INSERT INTO `comments` SET user_id='.$comment['user_id'].', match_id='.$comment['match_id'].',
                                       comment="'.$comment['comment'].'", 
                                       created=NOW();';
-    mysqli_query($this->dbconnect,$sql) or die(mysqli_query($this->dbconnect));
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+
   }
 
   public function update($id){
   }
 
   public function delete($id){
-    $sql = 'UPDATE `comments` SET id='.$id.', delete_flag=1, deleted=NOW()';
-    mysqli_query($this->dbconnect,$sql) or die(mysqli_query($this->dbconnect));
-
+    $sql = 'UPDATE `comments` SET delete_flag=1, deleted=NOW() WHERE id='.$id.';';
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
   }
   
 }
-
-
-  
 ?>
