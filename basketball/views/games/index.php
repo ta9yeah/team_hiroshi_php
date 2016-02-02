@@ -1,6 +1,5 @@
 <?php
 echo '試合一覧';
-
 $all_games = $this->view_options['all_games'];
 //var_dump($all_games);
 foreach ($all_games as $row) {
@@ -26,6 +25,7 @@ foreach ($all_games as $row) {
   echo $row['modified'].'<br />';
   echo $row['cancelled'].'<br />';
 ?>
+<a href="create">試合作成</a>
 <a href="show/<?php echo $row['id']; ?>">試合詳細</a>
 <br />
 <br />

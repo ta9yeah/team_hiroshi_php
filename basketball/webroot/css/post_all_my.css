@@ -1,0 +1,44 @@
+/* post all css */
+
+/*post eachのstyle */
+section{ padding: 24px 6.5%;}
+section div#post-container{
+    width: 100%;
+    padding: 24px 6.5%;
+    background-color: #222;
+}
+.post-wrap{
+    width: 250px;
+    margin: 1%;
+    border-radius: 6px;
+}
+.post-box{
+    padding: 5px 12px;
+    border-radius: 6px;
+    background-color: rgba( 125, 125, 125, .5);
+}
+.post-box.color-01{ background-color: #336BF4;}
+.post-box.color-02{ background-color: #636468;}
+.post-box.color-03{ background-color: #F4337F;}
+.post-box.color-04{ background-color: #28DBEF;}
+.post-box.color-05{ background-color: #E18D31;}
+
+/* box内のsstyle */
+.post-box > *{
+    color: #fff;
+}
+.post-box p{
+    margin-bottom: 0;
+    font-weight: bold;
+}
+.post-box .match-title{
+    margin-top: 0;
+    color: #fff;
+}
+.row .match-day{
+    padding: 0 4px;
+}
+button.btn.btn-default{
+    display: block;
+    margin: 0 auto 12px;
+}

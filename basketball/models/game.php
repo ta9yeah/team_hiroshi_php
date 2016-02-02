@@ -12,9 +12,8 @@ class Game{
     //初期化処理
     $this->dbconnect = $db;
   }
-
   //表示
-   public function findAll(){
+  public function findAll(){
     $return = array();
     $sql = 'select * from `matches` ;';
     $results = mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
@@ -23,7 +22,18 @@ class Game{
       $return[] = $row;
     }
     return $return;
-   }
+  }
+  //entrance
+  public function selectGame(){
+    $return  = array();
+    $sql     = 'SELECT * FROM `matches` LIMIT 3';
+    $results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
+
+    while($row = mysqli_fetch_assoc($results)){
+      $return[] = $row;
+    }
+    return $return;
+  }
 
   public function view($value){
     //DBアクセス処理
@@ -37,9 +47,9 @@ class Game{
     return $return;
   }
 
-  public function insert($box){
+  public function insert($box2){
     //INSERTのSQL文
-    $sql = 'INSERT INTO `matches` SET master_id=1, date="'.$box2['date'].'",
+    $sql = 'INSERT INTO `matches` SET master_id=1,date="'.$box2['date'].'",
                                       start_time="'.$box2['start_time'].'", 
                                       end_time="'.$box2['end_time'].'",
                                       deadline_date="'.$box2['deadline_date'].'",
@@ -55,7 +65,7 @@ class Game{
                                       address="'.$box2['address'].'",
                                       address_url="'.$box2['address_url'].'",
                                       created=NOW();';
-    mysqli_query($this->dbconnect,$sql) or die(mysqli_query($this->dbconnect));
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
   }
 
   public function update($id){
@@ -68,10 +78,13 @@ class Game{
                                 people_max="'.$id['people_max'].'",place_name="'.$id['place_name'].'",
                                 place_type="'.$id['place_type'].'",address="'.$id['address'].'",address_url="'.$id['address_url'].'",
                                 modified=NOW() WHERE `id` = '.$id['id'].';';
-    mysqli_query($this->dbconnect,$sql) or die(mysqli_query($this->dbconnect));
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
   }
 
-  public function delete(){
+  public function delete($id){
+    //deleteによる編集UPDATEのSQL文(論理削除)　statusの部分を２にする作業
+    $sql = 'UPDATE `matches` SET `status_flag`=2 WHERE `id` ='.$id.';';
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
 
   }
   

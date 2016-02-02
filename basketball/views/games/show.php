@@ -1,3 +1,4 @@
+
 <?php
 echo '試合の詳細ページ';
 
@@ -25,4 +26,10 @@ foreach ($one_game as $row) {
   echo $row['modified'].'<br />';
   echo $row['cancelled'].'<br />';
 }
+ 
 ?>
+<a href="../edit/<?php echo $row['id'];?>">試合編集</a>
+<!-- <input type="button" value="DELETE" onClick="game_delete()"> -->
+<a href="../destroy/<?php echo $row['id'];?>" onclick="game_delete()">試合削除</a>
+
+
