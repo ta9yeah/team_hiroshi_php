@@ -8,11 +8,13 @@ switch ($action) {
   case 'index':
     $comments->index();
     break;
-  
+
+//showは個別gameに対するcomment一覧
   case 'show':
     $comments->show($id);
     break;
-//createは試合作成画面の表示
+
+//createはcommentを直接DB送信
   case 'create':
     $comments->create();
     break;
@@ -61,8 +63,8 @@ switch ($action) {
 
     //コンストラクタ
     public function __construct(){
-       $comment = new Comments();
-       $this->resource='games';
+       $comment = new Comment();
+       $this->resource='comments';
        $this->action='index';
        $this->view_options = array();
        $this->Comments = $comment;
@@ -71,44 +73,53 @@ switch ($action) {
     // 試合一覧画面
     public function index(){
       //処理
-      $all_games = $this->Comments->findAll();
+      $all_comments = $this->Comments->findAll();
+
+//      var_dump($all_comments);
 
       $this->view_options = compact('all_comments');
-    
+
       $this->display();
     }
 
     //試合詳細画面
     public function show($id){
+      echo 'comments_show';
 
       $this->id=$id;
 
-      $one_game = $this->Comments->view($id);
+      $one_comments = $this->Comments->view($id);
+      // var_dump($one_comments);
 
       $this->view_options = compact('one_comments');
-
       $this->action='show';
 
       $this->display();
 
-      echo 'comments_show';
     }
 
     //試合作成画面を表示
     public function create(){
-      echo 'comments_create';  
+      echo 'comments_create';
+      $this->id=$id;
+      
+      var_dump($_POST);
+      $this->Comments->insert($_POST);
+
     }
-    
 
     //編集ページを表示
     public function edit(){
       echo 'comments_controller.phpのエコーedit';
     }
 
-
     //削除
     public function destroy(){
       echo 'comments_destroy';
+      $this->id=$id;
+
+      $this->Comments->delete($id);
+
       //削除した後にどこに飛ぶか？
     }
 
