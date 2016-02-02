@@ -19,6 +19,7 @@
     <link href="/basketball/webroot/css/common/main.css" rel="stylesheet">
     <link href="/basketball/webroot/css/common/login.css" rel="stylesheet">
 	<link href="/basketball/webroot/css/main_my.css" rel="stylesheet">
+	<link href="/basketball/webroot/css/post_all_my.css" rel="stylesheet">
 
     <link href="/basketball/webroot/fonts/font-awesome.min.css" rel="stylesheet">
 
@@ -144,34 +145,75 @@
 	</div><!-- /headerwrap -->
 	
 	<!-- BLOG POSTS -->
-	<div class="container">
+	<div id="post-container" class="container">
 		<div class="row mt">
 			<div class="col-lg-12">
 				<h1>Recent Posts</h1>
 			</div><!-- col-lg-12 -->
 		</div><!-- row -->
-		
-		<div class="row mt">
-			<div class="col-lg-4">
-				<img class="img-responsive" src="assets/img/post01.jpg" alt="">
-				<h3><a href="#">Designing for the reader experience</a></h3>
-				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-				<p><a href="#"><i class="fa fa-link"></i> Read More</a></p>
+
+	<?php foreach ($this->view_options['select_games'] as $value): ?> 	
+		<!-- <div class="row mt"> -->
+			<div class="post-wrap">
+				<article>
+					<div class="dg post-box color-02">
+						<header>
+							<p>match title :</p>
+							<p></P>
+							<h1 class="match-title"><?php echo $value['comment']; ?></h1>
+						</header>
+						<dl>		
+							<dt>date :</dt><dd><?php echo $value['date']; ?></dd>
+							<dt>time :</dt><dd><?php echo $value['start_time']; ?></dd>
+							<dt>match type :</dt><dd>
+							<?php //1=serious / 2=friendely / 3=training
+								switch($value['type']){
+									case '1':
+										echo 'Serious';
+										break;
+									case '2':
+										echo 'Friendely';
+										break;
+									case '3':
+										echo 'Training';
+										break;
+									default:
+										break;
+								}
+							?></dd>
+							<dt>match Level :</dt><dd>
+							<?php
+								switch($value['level']){
+									case '1':
+										echo '1(Bigner)';
+										break;
+									case '2':
+										echo 'High Biginer';
+										break;
+									case '3':
+										echo 'Low Intermediate';
+										break;
+									case '4':
+										echo 'Intermediate';
+										break;
+									case '5':
+										echo 'Advace(High)';
+										break;
+									default:
+										break;
+								}
+							?>
+							</dd>
+							<dt>number of recruited persons :</dt><dd><strong>00</strong>/<?php echo $value['people_max']; ?></dd>
+							<dt>time limit for application :</dt><dd><?php echo $value['deadline_date']; ?><i class="fa fa-bomb"></i> <?php echo $value['deadline_time']; ?></dd>
+						</dl>
+						<button type="button" class="btn btn-default"><a href="#">>> show more</a></button>
+					</div>
+				</article>
 			</div>
-			<div class="col-lg-4">
-				<img class="img-responsive" src="assets/img/post02.jpg" alt="">
-				<h3><a href="#">25 Examples of flat web application design</a></h3>
-				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-				<p><a href="#"><i class="fa fa-link"></i> Read More</a></p>
-			</div>
-			<div class="col-lg-4">
-				<img class="img-responsive" src="assets/img/post03.jpg" alt="">
-				<h3><a href="#">We are an award winning design agency</a></h3>
-				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-				<p><a href="#"><i class="fa fa-link"></i> Read More</a></p>
-			</div>		
-		</div><!-- row -->
-	</div><!-- container -->
+	<?php endforeach; ?>
+		<!-- </div> --><!-- row -->
+	</div><!-- post_container -->
 
 	<div class="container">
 		<div class="row mt">
@@ -181,10 +223,7 @@
 		</div><!-- row -->
 	</div><!-- container -->
 	
-	
-	<!-- SOCIAL FOOTER -->
-	<section id="contact">
-	</section>
+	<!-- FOOTER -->
 	<div id="sf">
 		<footer>
 		<div class="container">
@@ -221,5 +260,16 @@
 			viewportFactor : 0.2
 		} );
 	</script>
+	<script>
+	$(function(){
+		var $container = $('#post-container');
+			$container.imagesLoaded( function(){
+			$container.masonry({
+				itemSelector : '.post-wrap',
+				isFitWidth: true
+			});
+		});
+	});
+</script>
   </body>
 </html>
