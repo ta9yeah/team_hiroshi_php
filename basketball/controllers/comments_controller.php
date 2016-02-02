@@ -25,7 +25,7 @@ switch ($action) {
     break;
 
   case 'destroy':
-    $comments->destroy();
+    $comments->destroy($id);
     break;
 
   case 'view':
@@ -100,12 +100,13 @@ switch ($action) {
 
     //試合作成画面を表示
     public function create(){
-      echo 'comments_create';
+      // echo 'comments_create';
       $this->id=$id;
       
-      var_dump($_POST);
+      // var_dump($_POST);
       $this->Comments->insert($_POST);
 
+      header("Location:show/".$_POST['match_id']);
     }
 
     //編集ページを表示
@@ -114,11 +115,12 @@ switch ($action) {
     }
 
     //削除
-    public function destroy(){
-      echo 'comments_destroy';
-      $this->id=$id;
-
+    public function destroy($id){
+      // echo 'comments_destroy';
+      // $this->id=$id;
       $this->Comments->delete($id);
+
+      header("Location:../index");
 
       //削除した後にどこに飛ぶか？
     }

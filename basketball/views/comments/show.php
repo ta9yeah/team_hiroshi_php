@@ -3,7 +3,7 @@ comments showのphpです。</br>
 
 <?php
 
-// $id = $this->id;
+$id = $this->id;
 
 $one_comments = $this->view_options['one_comments'];
 //var_dump($one_comments);
@@ -19,7 +19,7 @@ foreach ($one_comments as $row){
 	echo $row['delete_flag'].', ';
 	echo $row['deleted'].', ';
 ?>
-	<a href="../destroy/<?php echo $row['id']; ?>">[削除]</a></br>';
+	<a href="../destroy/<?php echo $row['id']; ?>">[削除]</a></br>
 <?php
 }
 
@@ -29,7 +29,7 @@ foreach ($one_comments as $row){
 <html>
 <form action="../create" method="post">
 <input type="hidden" name="user_id" value="<?php echo '1'; ?>">
-<input type="hidden" name="match_id" value="<?php $id; ?>">
+<input type="hidden" name="match_id" value="<?php echo $id; ?>">
 <input type="text" name="comment" size="100">
 <input type="submit" value="コメント">
 </form>
