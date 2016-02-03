@@ -1,7 +1,10 @@
 /* post all css */
 
 /*post eachのstyle */
-section{ padding: 24px 6.5%;}
+section{ 
+   /* padding: 24px 6.5%;*/
+    background-color: #222;
+}
 section div#post-container{
     width: 100%;
     padding: 24px 6.5%;

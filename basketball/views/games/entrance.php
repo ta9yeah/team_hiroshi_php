@@ -145,73 +145,74 @@
 	</div><!-- /headerwrap -->
 	
 	<!-- BLOG POSTS -->
-	<div id="post-container" class="container">
+	<div class="container">
 		<div class="row mt">
 			<div class="col-lg-12">
 				<h1>Recent Posts</h1>
 			</div><!-- col-lg-12 -->
 		</div><!-- row -->
-
-	<?php foreach ($this->view_options['select_games'] as $value): ?> 	
-		<!-- <div class="row mt"> -->
-			<div class="post-wrap">
-				<article>
-					<div class="dg post-box color-02">
-						<header>
-							<p>match title :</p>
-							<p></P>
-							<h1 class="match-title"><?php echo $value['comment']; ?></h1>
-						</header>
-						<dl>		
-							<dt>date :</dt><dd><?php echo $value['date']; ?></dd>
-							<dt>time :</dt><dd><?php echo $value['start_time']; ?></dd>
-							<dt>match type :</dt><dd>
-							<?php //1=serious / 2=friendely / 3=training
-								switch($value['type']){
-									case '1':
-										echo 'Serious';
-										break;
-									case '2':
-										echo 'Friendely';
-										break;
-									case '3':
-										echo 'Training';
-										break;
-									default:
-										break;
-								}
-							?></dd>
-							<dt>match Level :</dt><dd>
-							<?php
-								switch($value['level']){
-									case '1':
-										echo '1(Bigner)';
-										break;
-									case '2':
-										echo 'High Biginer';
-										break;
-									case '3':
-										echo 'Low Intermediate';
-										break;
-									case '4':
-										echo 'Intermediate';
-										break;
-									case '5':
-										echo 'Advace(High)';
-										break;
-									default:
-										break;
-								}
-							?>
-							</dd>
-							<dt>number of recruited persons :</dt><dd><strong>00</strong>/<?php echo $value['people_max']; ?></dd>
-							<dt>time limit for application :</dt><dd><?php echo $value['deadline_date']; ?><i class="fa fa-bomb"></i> <?php echo $value['deadline_time']; ?></dd>
-						</dl>
-						<button type="button" class="btn btn-default"><a href="#">>> show more</a></button>
-					</div>
-				</article>
-			</div>
-	<?php endforeach; ?>
+		<div id="post-container">
+			<?php foreach ($this->view_options['select_games'] as $value): ?> 	
+				<!-- <div class="row mt"> -->
+				<div class="post-wrap">
+					<article>
+						<div class="dg post-box color-0<?php echo $value['level']; ?>">
+							<header>
+								<p>match title :</p>
+								<p></P>
+								<h1 class="match-title"><?php echo $value['comment']; ?></h1>
+							</header>
+							<dl>		
+								<dt>date :</dt><dd><?php echo $value['date']; ?></dd>
+								<dt>time :</dt><dd><?php echo $value['start_time']; ?></dd>
+								<dt>match type :</dt><dd>
+								<?php //1=serious / 2=friendely / 3=training
+									switch($value['type']){
+										case '1':
+											echo 'Serious';
+											break;
+										case '2':
+											echo 'Friendely';
+											break;
+										case '3':
+											echo 'Training';
+											break;
+										default:
+											break;
+									}
+								?></dd>
+								<dt>match Level :</dt><dd>
+								<?php
+									switch($value['level']){
+										case '1':
+											echo '1(Beginner)';
+											break;
+										case '2':
+											echo 'High Beginner';
+											break;
+										case '3':
+											echo 'Low Intermediate';
+											break;
+										case '4':
+											echo 'Intermediate';
+											break;
+										case '5':
+											echo 'Advace(High)';
+											break;
+										default:
+											break;
+									}
+								?>
+								</dd>
+								<dt>number of recruited persons :</dt><dd><strong>00</strong>/<?php echo $value['people_max']; ?></dd>
+								<dt>time limit for application :</dt><dd><?php echo $value['deadline_date']; ?><i class="fa fa-bomb"></i> <?php echo $value['deadline_time']; ?></dd>
+							</dl>
+							<button type="button" class="btn btn-default"><a href="#">>> show more</a></button>
+						</div>
+					</article>
+				</div>
+			<?php endforeach; ?>
+		</div>
 		<!-- </div> --><!-- row -->
 	</div><!-- post_container -->
 
