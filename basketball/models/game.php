@@ -13,11 +13,33 @@ class Game{
     $this->dbconnect = $db;
   }
   //表示
-  public function findAll(){
+  public function findAll($box3){
     $return = array();
-    $sql = 'select * from `matches` ;';
+       // var_dump($box3);
+    if ($box3['sort']== null ) {
+    $sql = 'select * from `matches` ORDER BY date DESC ;';
+    }elseif ($box3['sort'] == 1) {
+    $sql = 'select * from `matches` WHERE level="'.$box3['level'].'" AND type="'.$box3['type'].'" ORDER BY date;';
+      if ($box3['level'] == 0) {
+      $sql = 'select * from `matches` WHERE type="'.$box3['type'].'" ORDER BY date;';
+        if ($box3['type'] == 0) {
+        $sql = 'select * from `matches` ORDER BY date ;';
+        }
+      }elseif ($box3['type'] == 0) {
+      $sql = 'select * from `matches` WHERE level="'.$box3['level'].'" ORDER BY date;';
+      }
+    }elseif ($box3['sort'] == 2) {
+    $sql = 'select * from `matches` WHERE level="'.$box3['level'].'" AND type="'.$box3['type'].'" ORDER BY date DESC;';
+      if ($box3['level'] == 0) {
+      $sql = 'select * from `matches` WHERE type="'.$box3['type'].'" ORDER BY date DESC;';
+        if ($box3['type'] == 0) {
+        $sql = 'select * from `matches` ORDER BY date DESC;';
+        }
+      }elseif ($box3['type'] == 0) {
+      $sql = 'select * from `matches` WHERE level="'.$box3['level'].'" ORDER BY date DESC;';
+      }
+    }
     $results = mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
-
     while ($row = mysqli_fetch_assoc($results)) {
       $return[] = $row;
     }

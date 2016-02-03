@@ -1,3 +1,26 @@
+
+<form action="index" method="post">
+  <select name="sort">
+    <option value="1">古い順</option>
+    <option value="2">新しい順</option>
+  </select>
+  <select name="level">
+    <option value="0">特になし</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <select name="type">
+    <option value="0">特になし</option>
+    <option value="1">ガチンコ</option>
+    <option value="2">練習試合</option>
+    <option value="3">トレーニング</option>
+  </select>
+  <input type="submit" value="SORT">
+</form>
+
 <?php
 echo '試合一覧';
 $all_games = $this->view_options['all_games'];
