@@ -12,11 +12,12 @@ class Game{
     //初期化処理
     $this->dbconnect = $db;
   }
-  
+
   //表示
   public function findAll($box3){
     $return = array();
-       // var_dump($box3);
+    
+    //sort 表示
     if ($box3['sort']== null ) {
     $sql = 'select * from `matches` ORDER BY date DESC ;';
     }elseif ($box3['sort'] == 1) {
@@ -40,6 +41,7 @@ class Game{
       $sql = 'select * from `matches` WHERE level="'.$box3['level'].'" ORDER BY date DESC;';
       }
     }
+
     $results = mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
     while ($row = mysqli_fetch_assoc($results)) {
       $return[] = $row;

@@ -21,7 +21,6 @@ switch ($action) {
   case 'create':
     $games->create();
     break;
-
 //編集画面へ
   case 'edit':
     $games->edit($id);
@@ -30,27 +29,27 @@ switch ($action) {
   case 'edit_check':
     $games->edit_check();
     break;
-
+//
   case 'edit_do':
     $games->edit_do();
     break;
-
+//
   case 'destroy':
     $games->destroy($id);
     break;
-
+//
   case 'view':
     $game->view();
     break;
-
+//
   case 'update':
     $game->update();
     break;
-
+//
   case 'check':
     $games->check();
     break;
-
+//
   case 'delete':
     $game->delete();
     break;
@@ -58,8 +57,7 @@ switch ($action) {
   case 'create2';
     $games->create2();
     break;
-
-
+//defalut
   default:
     echo '席に戻ってやり直し';
     break;
@@ -169,19 +167,16 @@ switch ($action) {
     public function edit_check(){
       echo "function edit_check";
       $edit = $_POST;
+
     //edit内容受領確認
-      //var_dump($edit);
-
       $this->view_options = compact('edit');
-
       $this->action="edit_check";
       $this->display();
-
     }
 
+    //編集の実行
     public function edit_do(){
       $this->Game->update($_POST);
-
     //試合一覧に飛ぶ
       header("Location:index");
       exit();
