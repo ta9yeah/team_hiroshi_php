@@ -51,7 +51,6 @@ switch ($action) {
     $games->check();
     break;
 
-
   case 'delete':
     $game->delete();
     break;
@@ -103,49 +102,35 @@ switch ($action) {
       $box3 = $_POST;
       //処理
       $all_games = $this->Game->findAll($box3);
-
       $this->view_options = compact('all_games');
-    
       $this->display();
     }
-
-
 
     //エントランス画面
     public function entrance(){
       $select_games = $this->Game->selectGame();
-
       $this->view_options = compact('select_games');
-
       $this->action = 'entrance';
-
       $this->display();
     } 
 
     //試合詳細画面
     public function show($id){
-
       $this->id=$id;
-
       $one_game = $this->Game->view($id);
-
       $this->view_options = compact('one_game');
-
       $this->action='show';
-
       $this->display();
-
       echo 'show';
     }
 
     //試合作成画面を表示
     public function create(){
       echo 'create';
-
       $this->action='create';
       $this->display();
-      
     }
+
     //試合を作成する
     public function check(){
       echo 'check';
@@ -156,6 +141,7 @@ switch ($action) {
       $this->action='check';
       $this->display();
     }
+
     //試合を作成する
     public function create2(){
       $box2 = $_POST; 
@@ -173,7 +159,6 @@ switch ($action) {
       $edit_game = $this->Game->view($id);
       var_dump($edit_game);
       $this->view_options = compact('edit_game');
-
       $this->action="edit";
       $this->display();
 

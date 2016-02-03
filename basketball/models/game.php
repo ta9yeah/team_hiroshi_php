@@ -12,6 +12,7 @@ class Game{
     //初期化処理
     $this->dbconnect = $db;
   }
+  
   //表示
   public function findAll($box3){
     $return = array();
@@ -45,6 +46,7 @@ class Game{
     }
     return $return;
   }
+
   //entrance
   public function selectGame(){
     $return  = array();
