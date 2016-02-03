@@ -86,6 +86,7 @@ switch ($action) {
     private $box2 = '';
     private $edit ='';
     private $edit_check ='';
+    // private $box3 ='';
 
     //コンストラクタ
     public function __construct(){
@@ -94,17 +95,21 @@ switch ($action) {
        $this->action='index';
        $this->view_options = array();
        $this->Game = $game;
+       // $this->box3 = 2;
     }
     
     //試合一覧画面
     public function index(){
+      $box3 = $_POST;
       //処理
-      $all_games = $this->Game->findAll();
+      $all_games = $this->Game->findAll($box3);
 
       $this->view_options = compact('all_games');
     
       $this->display();
     }
+
+
 
     //エントランス画面
     public function entrance(){
