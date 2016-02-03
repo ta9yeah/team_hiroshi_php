@@ -28,7 +28,7 @@ class Comment{
   public function view($value){
     //DBアクセス処理
     $return = array();
-    $sql = 'select * from `comments` where `match_id` = '.$value.';';
+    $sql = 'select * from `comments` WHERE `delete_flag` = 0 AND `match_id` = '.$value.';';
     $results =mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
 
     while ($row = mysqli_fetch_assoc($results)) {

@@ -11,8 +11,8 @@ $one_comments = $this->view_options['one_comments'];
 foreach ($one_comments as $row){
 	echo $row['id'].', ';
 	echo $row['user_id'].', ';
-	echo '<a href="show/'.$row['match_id'].'">'.$row['match_id'].'(しょう)</a>';
-	// echo $row['match_id'].', ';
+	//echo '<a href="show/'.$row['match_id'].'">'.$row['match_id'].'(しょう)</a>';
+	echo $row['match_id'].', ';
 	echo $row['comment'].', ';
 	echo $row['created'].', ';
 	echo $row['modified'].', ';
@@ -22,9 +22,9 @@ foreach ($one_comments as $row){
 	<a href="../destroy/<?php echo $row['id']; ?>">[削除]</a></br>
 <?php
 }
-
-	echo '<a href="../index">一覧へ</a></br>'
 ?>
+	<a href="../../games/show/<?php echo $row['match_id']; ?>">試合詳細へ戻る</a></br>
+	<a href="../index">一覧へ</a></br>
 
 <html>
 <form action="../create" method="post">

@@ -28,6 +28,8 @@ foreach ($one_game as $row) {
 }
  
 ?>
+<a href="../../comments/show/<?php echo $row['id'];?>">Chat board</a>
+
 <a href="../edit/<?php echo $row['id'];?>">試合編集</a>
 <!-- <input type="button" value="DELETE" onClick="game_delete()"> -->
 <a href="../destroy/<?php echo $row['id'];?>" onclick="game_delete()">試合削除</a>
