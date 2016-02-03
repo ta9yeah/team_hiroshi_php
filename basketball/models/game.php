@@ -48,7 +48,7 @@ class Game{
   //entrance
   public function selectGame(){
     $return  = array();
-    $sql     = 'SELECT * FROM `matches` LIMIT 3';
+    $sql     = 'SELECT * FROM `matches` LIMIT 4';
     $results = mysqli_query($this->dbconnect, $sql) or die(mysqli_error($this->dbconnect));
 
     while($row = mysqli_fetch_assoc($results)){
