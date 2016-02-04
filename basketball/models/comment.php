@@ -25,6 +25,7 @@ class Comment{
     return $return;
    }
 
+  //コメントを書く 
   public function view($value){
     //DBアクセス処理
     $return = array();
@@ -37,18 +38,20 @@ class Comment{
     return $return;
   }
 
+  //コメントを書く
   public function insert($comment){
     //INSERTのSQL文
     $sql = 'INSERT INTO `comments` SET user_id='.$comment['user_id'].', match_id='.$comment['match_id'].',
                                       comment="'.$comment['comment'].'", 
                                       created=NOW();';
     mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
-
   }
 
+  //コメントを書く
   public function update($id){
   }
-
+  
+  //コメントを書く
   public function delete($id){
     $sql = 'UPDATE `comments` SET delete_flag=1, deleted=NOW() WHERE id='.$id.';';
     mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));

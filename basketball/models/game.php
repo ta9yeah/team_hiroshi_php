@@ -13,7 +13,7 @@ class Game{
     $this->dbconnect = $db;
   }
 
-  //表示
+  //match 一覧表示
   public function findAll($box3){
     $return = array();
     
@@ -49,7 +49,7 @@ class Game{
     return $return;
   }
 
-  //entrance
+  //entrance　下部セレクトゲーム表示
   public function selectGame(){
     $return  = array();
     $sql     = 'SELECT * FROM `matches` LIMIT 4';
@@ -61,6 +61,7 @@ class Game{
     return $return;
   }
 
+  //コメントを書く
   public function view($value){
     //DBアクセス処理
     $return = array();
@@ -73,6 +74,7 @@ class Game{
     return $return;
   }
 
+  //コメントを書く
   public function insert($box2){
     //INSERTのSQL文
     $sql = 'INSERT INTO `matches` SET master_id=1,date="'.$box2['date'].'",
@@ -93,7 +95,8 @@ class Game{
                                       created=NOW();';
     mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
   }
-
+  
+  //コメントを書く
   public function update($id){
     //editによる編集UPDATEのSQL文
     $sql = 'UPDATE `matches` SET id="'.$id['id'].'",date="'.$id['date'].'",
@@ -107,11 +110,11 @@ class Game{
     mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
   }
 
+  //コメントを書く
   public function delete($id){
     //deleteによる編集UPDATEのSQL文(論理削除)　statusの部分を２にする作業
     $sql = 'UPDATE `matches` SET `status_flag`=2 WHERE `id` ='.$id.';';
     mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
-
   }
   
 }

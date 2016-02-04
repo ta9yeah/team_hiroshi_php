@@ -21,7 +21,7 @@
 	<link href="/basketball/webroot/css/main_my.css" rel="stylesheet">
 	<link href="/basketball/webroot/css/post_all_my.css" rel="stylesheet">
 
-    <link href="/basketball/webroot/fonts/font-awesome.min.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/common/font-awesome.min.css" rel="stylesheet">
 
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
@@ -58,9 +58,10 @@
 		<div class="modal-dialog">
 			<div class="loginmodal-container">
 				<h1>Login to Your Account</h1><br>
-				<form>
-					<input type="text" name="user" placeholder="Username">
-					<input type="password" name="pass" placeholder="Password">
+				<form action="../acounts/login" method="post">
+					<input type="text" name="user_name" placeholder="Username">
+					<input type="password" name="password" placeholder="Password">
+					<input type="checkbox" name="save" id="save" value="on"><label for="save">次回からは自動的にログインする</label>
 					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
 				</form>
 				<p>or</p>

@@ -5,8 +5,7 @@ echo '試合編集';
 <?php
 $edit_game = $this->view_options['edit_game'];
 //var_dump($edit_game);
-
-foreach ($edit_game as $row){
+$edit_game as $row
 ?>
 
 <form action="../edit_check" method="post" enctype="multipart/form-data">
@@ -54,5 +53,5 @@ address url
 </form>
 
 <?php
-}
+
 ?>

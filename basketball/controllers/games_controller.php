@@ -57,6 +57,9 @@ switch ($action) {
   case 'create2';
     $games->create2();
     break;
+//login
+  case 'login';
+
 //defalut
   default:
     echo '席に戻ってやり直し';
@@ -87,12 +90,12 @@ switch ($action) {
 
     //コンストラクタ
     public function __construct(){
-       $game = new Game();
-       $this->resource='games';
-       $this->action='index';
-       $this->view_options = array();
-       $this->Game = $game;
-       // $this->box3 = 2;
+      $game = new Game();
+      $this->resource='games';
+      $this->action='index';
+      $this->view_options = array();
+      $this->Game = $game;
+      // $this->box3 = 2;
     }
     
     //試合一覧画面
@@ -124,7 +127,6 @@ switch ($action) {
 
     //試合作成画面を表示
     public function create(){
-      echo 'create';
       $this->action='create';
       $this->display();
     }
@@ -186,10 +188,10 @@ switch ($action) {
     public function destroy($id){
       $this->Game->delete($id);
       //論理削除した後に一覧に飛ぶ
-      header('Location:../index');
-      
+      header('Location:../index');  
     }
 
+    //コメントを書く
     private function display(){
       require('/var/www/html/basketball/views/layout/application.php');
     }

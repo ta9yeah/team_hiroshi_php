@@ -48,7 +48,7 @@
     <link href="/basketball/webroot/css/main_my.css" rel="stylesheet">
     <link href="/basketball/webroot/css/post_all_my.css" rel="stylesheet">
 
-    <link href="/basketball/webroot/fonts/font-awesome.min.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/common/font-awesome.min.css" rel="stylesheet">
 
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
@@ -168,6 +168,7 @@
                 ?></dd>
                 <dt>match Level :</dt><dd>
                 <?php
+                  // 1(Beginner), 2(High Beginner), 3(Low Intermediate), 4(Intermediate), 5(Advace(High))
                   switch($value['level']){
                     case '1':
                       echo '1(Beginner)';
