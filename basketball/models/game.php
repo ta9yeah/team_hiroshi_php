@@ -94,6 +94,12 @@ class Game{
                                       address_url="'.$box2['address_url'].'",
                                       created=NOW();';
     mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+
+    $id=mysqli_insert_id($this->dbconnect);
+    // var_dump($id);
+    $sql = 'INSERT INTO `match_members` SET match_id='.$id.', user_id=1, applied=NOW(), master_flag=1;';
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+
   }
   
   //コメントを書く
