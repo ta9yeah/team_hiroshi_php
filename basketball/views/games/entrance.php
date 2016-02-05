@@ -1,5 +1,3 @@
-<?php
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,7 +47,9 @@
 			</div>
 			<div class="col-sm-4 nav-right">
 				<a href="#" data-toggle="modal" data-target="#login-modal">LOG IN</a>
+				<a href="../acounts/logout">LOG OUT</a>
 			</div>
+
 		</div>
 	</header><!-- end header nav -->
 

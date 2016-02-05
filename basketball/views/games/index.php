@@ -76,6 +76,7 @@
       </div>
       <div class="col-sm-4 nav-right">
         <a href="#" data-toggle="modal" data-target="#login-modal">LOG IN</a>
+        <a href="../acounts/logout">LOG OUT</a>
       </div>
     </div>
   </header><!-- end header nav -->
@@ -146,7 +147,7 @@
               <header>
                 <p>match title :</p>
                 <p></P>
-                <h1 class="match-title"><?php echo $value['comment']; ?></h1>
+                <h1 class="match-title"><?php echo $value['title']; ?></h1>
               </header>
               <dl>    
                 <dt>date :</dt><dd><?php echo $value['date']; ?></dd>

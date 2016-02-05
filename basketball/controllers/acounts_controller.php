@@ -45,23 +45,20 @@ class Acountscontroller{
     $record = $this->Acount->getacount();
     $this->user_options = compact('record');
 
-    var_dump($this->user_options);
+    // var_dump($this->user_options);
 
     //ログイン成功
     $_SESSION['id'] = $this->user_options['record']['id'];
     $_SESSION['time'] = time();
 
     //login クッキー記録
-      if ($_POST['save'] == 'on'){
-        setcookie('username', $_POST['username'], time()+60*60*24*14);
-        setcookie('password', $_POST['password'], time()+60*60*24*14);
-      }
+    if ($_POST['save'] == 'on'){
+      setcookie('username', $_POST['username'], time()+60*60*24*14);
+      setcookie('password', $_POST['password'], time()+60*60*24*14);
+    }
 
-      //displayする
-      //またはheader
-      // header('Location:../games/index');
-      var_dump($_SESSION['id']);
-      // echo $this->user_options['id'];
+    //またはheader
+    header('Location:../games/index');
   }
 
   //logout　メソッド
