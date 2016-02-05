@@ -1,6 +1,7 @@
 
 <?php
 $one_game = $this->view_options['one_game'];
+<<<<<<< HEAD
 foreach($one_game as $row):
   // echo $row['master_id'];
   // echo $row['date'];
@@ -22,6 +23,56 @@ foreach($one_game as $row):
   // echo $row['status_flag'];
   // echo $row['modified'];
   // echo $row['cancelled'];
+=======
+$check = $this->view_options['check'];
+
+var_dump($check);
+
+foreach ($one_game as $row) {
+  echo $row['id'].'<br />';
+  echo $row['master_id'].'<br />';
+  echo $row['date'].'<br />';
+  echo $row['start_time'].'<br />';
+  echo $row['end_time'].'<br />';
+  echo $row['deadline_date'].'<br />';
+  echo $row['deadline_time'].'<br />';
+  echo $row['title'].'<br />';
+  echo $row['comment'].'<br />';
+  echo $row['type'].'<br />';
+  echo $row['level'].'<br />';
+  echo $row['people_min'].'<br />';
+  echo $row['people_max'].'<br />';
+  echo $row['place_type'].'<br />';
+  echo $row['place_name'].'<br />';
+  echo $row['address'].'<br />';
+  echo $row['address_url'].'<br />';
+  echo $row['created'].'<br />';
+  echo $row['status_flag'].'<br />';
+  echo $row['modified'].'<br />';
+  echo $row['cancelled'].'<br />';
+}
+
+if ($check == 'true') {
+?>
+<form action="../recall" method="post">
+  <input type="hidden" name="match_id" value="<?php echo $row['id']; ?>">
+  <input type="hidden" name="user_id" value="1">
+  <input type="hidden" name="cancel_flag" value="1">
+  <input type="submit" value="Cancel">
+</form>
+
+<?php
+ }else{
+?>
+<form action="../apply" method="post">
+  <input type="hidden" name="match_id" value="<?php echo $row['id']; ?>">
+  <input type="hidden" name="user_id" value="1">
+  <input type="submit" value="Apply">
+</form>
+
+<?php
+ }
+>>>>>>> 33ad79aa9a16d14b181dd6acada24ec7412d6607
 ?>
 <!DOCTYPE html>
 <html lang="en">

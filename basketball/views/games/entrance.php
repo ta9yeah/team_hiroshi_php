@@ -59,7 +59,7 @@
 			<div class="loginmodal-container">
 				<h1>Login to Your Account</h1><br>
 				<form action="../acounts/login" method="post">
-					<input type="text" name="user_name" placeholder="Username">
+					<input type="text" name="username" placeholder="E-mail">
 					<input type="password" name="password" placeholder="Password">
 					<input type="checkbox" name="save" id="save" value="on"><label for="save">次回からは自動的にログインする</label>
 					<input type="submit" name="login" class="login loginmodal-submit" value="Login">

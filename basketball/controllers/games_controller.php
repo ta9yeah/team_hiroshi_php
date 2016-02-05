@@ -57,8 +57,26 @@ switch ($action) {
   case 'create2';
     $games->create2();
     break;
+<<<<<<< HEAD
 //login
   case 'login';
+=======
+
+//参加申請
+  case 'apply':
+    $games->apply();
+    break;
+
+//参加申請重複チェック
+  case 'ap_check':
+    $game->ap_check($id);
+    break;
+
+//参加キャンセル
+  case 'recall':
+    $games->recall();
+    break;
+>>>>>>> 33ad79aa9a16d14b181dd6acada24ec7412d6607
 
 //defalut
   default:
@@ -117,9 +135,11 @@ switch ($action) {
 
     //試合詳細画面
     public function show($id){
+      $check=$this->ap_check($id);
+// var_dump($check);
       $this->id=$id;
       $one_game = $this->Game->view($id);
-      $this->view_options = compact('one_game');
+      $this->view_options = compact('check','one_game');
       $this->action='show';
       $this->display();
       echo 'show';
@@ -188,7 +208,28 @@ switch ($action) {
     public function destroy($id){
       $this->Game->delete($id);
       //論理削除した後に一覧に飛ぶ
+<<<<<<< HEAD
       header('Location:../index');  
+=======
+      header('Location:../index');
+    }
+
+    public function apply(){
+      $this->Game->join($_POST);
+      header('Location:show/'.$_POST['match_id']);
+    }
+
+    //参加申請済みならtrueを返す
+    public function ap_check($id){
+      return $this->Game->duplicate($id);
+
+    }
+
+    public function recall(){
+      // var_dump($_POST);
+      $this->Game->cancel($_POST);
+      header('Location:show/'.$_POST['match_id']);
+>>>>>>> 33ad79aa9a16d14b181dd6acada24ec7412d6607
     }
 
     //コメントを書く

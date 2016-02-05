@@ -115,8 +115,39 @@ class Game{
     //deleteによる編集UPDATEのSQL文(論理削除)　statusの部分を２にする作業
     $sql = 'UPDATE `matches` SET `status_flag`=2 WHERE `id` ='.$id.';';
     mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+<<<<<<< HEAD
+=======
+
+
+  }
+
+  //match_membersテーブルに追加
+  public function join($id){
+    $sql = 'INSERT INTO `match_members` SET `match_id`='.$id['match_id'].', `user_id`='.$id['user_id'].',applied=NOW();';
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+  }
+
+  public function duplicate($id){
+    $sql = 'SELECT count(*) AS cnt FROM `match_members` WHERE match_id='.$id.' AND user_id=1 AND cancel_flag=0;';
+    $results = mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+    $return = mysqli_fetch_assoc($results);
+    
+    if ($return['cnt']>0) {
+      return 'true';
+    }else{
+      return 'false';
+    }
+  }
+
+  //match_membersでcancel_flag=1にする
+  public function cancel($id){
+
+    $sql = 'UPDATE `match_members` SET `cancel_flag`=1, `cancelled`=NOW() WHERE `match_id`='.$id['match_id'].' AND `user_id`='.$id['user_id'].';';
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+>>>>>>> 33ad79aa9a16d14b181dd6acada24ec7412d6607
   }
   
+
 }
 
 
