@@ -59,22 +59,18 @@ switch ($action) {
   case 'create2';
     $games->create2();
     break;
-
 //参加申請
   case 'apply':
     $games->apply();
     break;
-
 //参加申請重複チェック
   case 'ap_check':
     $game->ap_check($id);
     break;
-
 //参加キャンセル
   case 'recall':
     $games->recall();
     break;
-
 //defalut
   default:
     echo '席に戻ってやり直し';
