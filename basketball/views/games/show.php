@@ -1,55 +1,32 @@
 
 <?php
 $one_game = $this->view_options['one_game'];
-<<<<<<< HEAD
-foreach($one_game as $row):
-  // echo $row['master_id'];
-  // echo $row['date'];
-  // echo $row['start_time'];
-  // echo $row['end_time'];
-  // echo $row['deadline_date'];
-  // echo $row['deadline_time'];
-  // echo $row['title'];
-  // echo $row['comment'];
-  // echo $row['type'];
-  // echo $row['level'];
-  // echo $row['people_min'];
-  // echo $row['people_max'];
-  // echo $row['place_type'];
-  // echo $row['place_name'];
-  // echo $row['address'];
-  // echo $row['address_url'];
-  // echo $row['created'];
-  // echo $row['status_flag'];
-  // echo $row['modified'];
-  // echo $row['cancelled'];
-=======
 $check = $this->view_options['check'];
 
-var_dump($check);
+//var_dump($check);
 
 foreach ($one_game as $row) {
-  echo $row['id'].'<br />';
-  echo $row['master_id'].'<br />';
-  echo $row['date'].'<br />';
-  echo $row['start_time'].'<br />';
-  echo $row['end_time'].'<br />';
-  echo $row['deadline_date'].'<br />';
-  echo $row['deadline_time'].'<br />';
-  echo $row['title'].'<br />';
-  echo $row['comment'].'<br />';
-  echo $row['type'].'<br />';
-  echo $row['level'].'<br />';
-  echo $row['people_min'].'<br />';
-  echo $row['people_max'].'<br />';
-  echo $row['place_type'].'<br />';
-  echo $row['place_name'].'<br />';
-  echo $row['address'].'<br />';
-  echo $row['address_url'].'<br />';
-  echo $row['created'].'<br />';
-  echo $row['status_flag'].'<br />';
-  echo $row['modified'].'<br />';
-  echo $row['cancelled'].'<br />';
+  // echo $row['id'].'<br />';
+  // echo $row['master_id'].'<br />';
+  // echo $row['date'].'<br />';
+  // echo $row['start_time'].'<br />';
+  // echo $row['end_time'].'<br />';
+  // echo $row['deadline_date'].'<br />';
+  // echo $row['deadline_time'].'<br />';
+  // echo $row['title'].'<br />';
+  // echo $row['comment'].'<br />';
+  // echo $row['type'].'<br />';
+  // echo $row['level'].'<br />';
+  // echo $row['people_min'].'<br />';
+  // echo $row['people_max'].'<br />';
+  // echo $row['place_type'].'<br />';
+  // echo $row['place_name'].'<br />';
+  // echo $row['address'].'<br />';
+  // echo $row['address_url'].'<br />';
+  // echo $row['created'].'<br />';
+  // echo $row['status_flag'].'<br />';
+  // echo $row['modified'].'<br />';
+  // echo $row['cancelled'].'<br />';
 }
 
 if ($check == 'true') {
@@ -58,7 +35,7 @@ if ($check == 'true') {
   <input type="hidden" name="match_id" value="<?php echo $row['id']; ?>">
   <input type="hidden" name="user_id" value="1">
   <input type="hidden" name="cancel_flag" value="1">
-  <input type="submit" value="Cancel">
+  <input class="btn btn-default" type="submit" value=">>Cancel...">
 </form>
 
 <?php
@@ -67,12 +44,12 @@ if ($check == 'true') {
 <form action="../apply" method="post">
   <input type="hidden" name="match_id" value="<?php echo $row['id']; ?>">
   <input type="hidden" name="user_id" value="1">
-  <input type="submit" value="Apply">
+  <input class="btn btn-default" type="submit" value=">>Join!!">
 </form>
 
 <?php
  }
->>>>>>> 33ad79aa9a16d14b181dd6acada24ec7412d6607
+//>>>>>>> 33ad79aa9a16d14b181dd6acada24ec7412d6607
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -180,7 +157,7 @@ if ($check == 'true') {
             <article>
               <div><!-- introduction -->
                 <p>match title :</p>
-                <h1 class="match-title">Mr.Anzai!!! i want to play basketball!!!</h1>
+                <h1 class="match-title"><?php echo $row['title'] ?></h1>
                 <dl>
                   <!-- date -->
                   <dt>date :</dt><dd><?php echo $row['date']; ?></dd>
@@ -250,15 +227,19 @@ if ($check == 'true') {
       </footer>
     </div><!-- Social Footer -->
   </footer>
-  <a href="../../comments/show/<?php echo $row['id'];?>">Chat board</a>
+  <a href="../index"> Return to Index </a>
+  <a href="../../comments/show/<?php echo $row['id'];?>"> Chat board </a>
 
-  <a href="../edit/<?php echo $row['id'];?>">試合編集</a>
+  <a href="../edit/<?php echo $row['id'];?>"> Edit </a>
 <?php
   if ($row['id'] == $row['master_id']){
     echo '<a href="../destroy/'.$row['id'].'" onclick="game_delete('.$row['id'].')">試合削除</a>';
   }
 ?>
-<?php endforeach; ?>
+<?php
+//endforeach;
+?>
+
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
