@@ -15,12 +15,12 @@
 
     <!-- Custom styles for this template -->
     <link href="/basketball/webroot/css/main.css" rel="stylesheet">
-    <link href="/basketball/webroot/css/login.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/common/login.css" rel="stylesheet">
     <link href="/basketball/webroot/css/main_my.css" rel="stylesheet">
-    <link href="/basketball/webroot/css/post_create.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/common/post_create.css" rel="stylesheet">
     <link href="/basketball/webroot/css/post_create_my.css" rel="stylesheet">
 
-    <link href="/basketball/webroot/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/common/font-awesome.min.css" rel="stylesheet">
 
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>

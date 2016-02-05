@@ -24,19 +24,15 @@
                 WHERE `username`="' .$_POST['username']. '"
                 AND `password`="' .$_POST['password']. '" ';
         $results = mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
-        while($row = mysqli_fetch_assoc($results)){
-          $return[] = $row;
-        }
+        $row = mysqli_fetch_assoc($results);
+        $return = $row;
+      
         return $return;
         }else{
           $error['login'] = 'blank';
         }
-    }
-    //signUP サインアップ
-    public function signup(){
-      $hero = 'hello world';
-      return $hero;
-    }
-  }
+    }//end getacount()
+
+  }//end class Acount
 
 ?>

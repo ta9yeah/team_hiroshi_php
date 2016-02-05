@@ -48,7 +48,7 @@ class Acountscontroller{
     var_dump($this->user_options);
 
     //ログイン成功
-    $_SESSION['id'] = $this->user_options['id'];
+    $_SESSION['id'] = $this->user_options['record']['id'];
     $_SESSION['time'] = time();
 
     //login クッキー記録
@@ -60,8 +60,8 @@ class Acountscontroller{
       //displayする
       //またはheader
       // header('Location:../games/index');
-      var_dump($this->_SESSION['id']);
-      echo $this->user_options['id'];
+      var_dump($_SESSION['id']);
+      // echo $this->user_options['id'];
   }
 
   //logout　メソッド

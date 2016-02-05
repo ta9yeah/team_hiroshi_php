@@ -2,6 +2,8 @@
 
 require('models/'.changesingular($resource).'.php');
 
+session_start();
+
 $games = new Gamescontroller();
 
 switch ($action) {
@@ -57,10 +59,6 @@ switch ($action) {
   case 'create2';
     $games->create2();
     break;
-<<<<<<< HEAD
-//login
-  case 'login';
-=======
 
 //参加申請
   case 'apply':
@@ -76,7 +74,6 @@ switch ($action) {
   case 'recall':
     $games->recall();
     break;
->>>>>>> 33ad79aa9a16d14b181dd6acada24ec7412d6607
 
 //defalut
   default:
@@ -136,7 +133,7 @@ switch ($action) {
     //試合詳細画面
     public function show($id){
       $check=$this->ap_check($id);
-// var_dump($check);
+      // var_dump($check);
       $this->id=$id;
       $one_game = $this->Game->view($id);
       $this->view_options = compact('check','one_game');
@@ -208,9 +205,7 @@ switch ($action) {
     public function destroy($id){
       $this->Game->delete($id);
       //論理削除した後に一覧に飛ぶ
-<<<<<<< HEAD
-      header('Location:../index');  
-=======
+
       header('Location:../index');
     }
 
@@ -222,14 +217,12 @@ switch ($action) {
     //参加申請済みならtrueを返す
     public function ap_check($id){
       return $this->Game->duplicate($id);
-
     }
 
     public function recall(){
       // var_dump($_POST);
       $this->Game->cancel($_POST);
       header('Location:show/'.$_POST['match_id']);
->>>>>>> 33ad79aa9a16d14b181dd6acada24ec7412d6607
     }
 
     //コメントを書く

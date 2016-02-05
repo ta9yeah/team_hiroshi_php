@@ -2,6 +2,8 @@
 
 require('models/'.changesingular($resource).'.php');
 
+session_start();
+
 $comments = new Commentscontroller();
 
 switch ($action) {
