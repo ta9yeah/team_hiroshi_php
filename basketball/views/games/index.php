@@ -71,7 +71,8 @@
         <a href="#">SERCH</a>
       </div>
       <div class="col-sm-4 nav-center">
-        LOGO
+        logo
+        <?php echo $_SESSION['id']; ?>
       </div>
       <div class="col-sm-4 nav-right">
         <a href="#" data-toggle="modal" data-target="#login-modal">LOG IN</a>
