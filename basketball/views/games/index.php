@@ -145,9 +145,9 @@
               <header>
                 <p>match title :</p>
                 <p></P>
-                <h1 class="match-title"><?php echo $value['comment']; ?></h1>
+                <h1 class="match-title"><?php echo $value['title']; ?></h1>
               </header>
-              <dl>    
+              <dl>
                 <dt>date :</dt><dd><?php echo $value['date']; ?></dd>
                 <dt>time :</dt><dd><?php echo $value['start_time']; ?></dd>
                 <dt>match type :</dt><dd>
@@ -193,7 +193,7 @@
                 <dt>number of recruited persons :</dt><dd><strong>00</strong>/<?php echo $value['people_max']; ?></dd>
                 <dt>time limit for application :</dt><dd><?php echo $value['deadline_date']; ?><i class="fa fa-bomb"></i> <?php echo $value['deadline_time']; ?></dd>
               </dl>
-              <button type="button" class="btn btn-default"><a href="#">>> show more</a></button>
+              <button type="button" class="btn btn-default"><a href="show/<?php echo $value['id']; ?>">>> show more</a></button>
             </div>
           </article>
         </div>
