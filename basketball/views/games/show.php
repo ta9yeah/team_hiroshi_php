@@ -29,28 +29,8 @@ foreach ($one_game as $row) {
   // echo $row['cancelled'].'<br />';
 }
 
-if ($check == 'true') {
 ?>
-<form action="../recall" method="post">
-  <input type="hidden" name="match_id" value="<?php echo $row['id']; ?>">
-  <input type="hidden" name="user_id" value="1">
-  <input type="hidden" name="cancel_flag" value="1">
-  <input class="btn btn-default" type="submit" value=">>Cancel...">
-</form>
 
-<?php
- }else{
-?>
-<form action="../apply" method="post">
-  <input type="hidden" name="match_id" value="<?php echo $row['id']; ?>">
-  <input type="hidden" name="user_id" value="1">
-  <input class="btn btn-default" type="submit" value=">>Join!!">
-</form>
-
-<?php
- }
-//>>>>>>> 33ad79aa9a16d14b181dd6acada24ec7412d6607
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -185,7 +165,30 @@ if ($check == 'true') {
                   <!-- dead line -->
                   <dt>time limit for application :</dt><dd><?php echo $row['deadline_date'].' ~'.$row['deadline_time']; ?></dd>
                 </dl>
-                <button type="button" class="btn btn-default"><a href="#">>> Join </a></button>
+                <!-- <button type="button" class="btn btn-default"><a href="#">>> Join </a></button> -->
+
+              <?php
+              if ($check == 'true') {
+              ?>
+              <form action="../recall" method="post">
+                <input type="hidden" name="match_id" value="<?php echo $row['id']; ?>">
+                <input type="hidden" name="user_id" value="1">
+                <input type="hidden" name="cancel_flag" value="1">
+                <input class="btn btn-default" type="submit" value=">>Cancel...">
+              </form>
+
+              <?php
+               }else{
+              ?>
+              <form action="../apply" method="post">
+                <input type="hidden" name="match_id" value="<?php echo $row['id']; ?>">
+                <input type="hidden" name="user_id" value="1">
+                <input class="btn btn-default" type="submit" value=">>Join!!">
+              </form>
+
+              <?php
+               }
+              ?>
               </div>
 
               <div><!-- chat -->
@@ -227,10 +230,10 @@ if ($check == 'true') {
       </footer>
     </div><!-- Social Footer -->
   </footer>
-  <a href="../index"> Return to Index </a>
-  <a href="../../comments/show/<?php echo $row['id'];?>"> Chat board </a>
+  <button type="button" class="btn btn-default"><a href="../index"> Return to Index </a></button>
+  <button type="button" class="btn btn-default"><a href="../../comments/show/<?php echo $row['id'];?>"> Chat board </a></button>
 
-  <a href="../edit/<?php echo $row['id'];?>"> Edit </a>
+  <button type="button" class="btn btn-default"><a href="../edit/<?php echo $row['id'];?>"> Edit </a></button>
 <?php
   if ($row['id'] == $row['master_id']){
     echo '<a href="../destroy/'.$row['id'].'" onclick="game_delete('.$row['id'].')">試合削除</a>';

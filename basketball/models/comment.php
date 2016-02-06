@@ -55,7 +55,12 @@ class Comment{
   public function delete($id){
     $sql = 'UPDATE `comments` SET delete_flag=1, deleted=NOW() WHERE id='.$id.';';
     mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+  
+    $sql = 'SELECT match_id FROM `comments` WHERE id='.$id.';';
+    $result=mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+    return mysqli_fetch_assoc($result);
   }
   
+
 }
 ?>

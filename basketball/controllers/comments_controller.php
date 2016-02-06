@@ -121,8 +121,10 @@ switch ($action) {
       // echo 'comments_destroy';
       // $this->id=$id;
       $this->Comments->delete($id);
+      $match_id=$this->Comments->delete($id);
 
-      header("Location:../index");
+      // var_dump($match_id['match_id']);
+      header("Location:../show/".$match_id['match_id']);
 
       //削除した後にどこに飛ぶか？
     }
