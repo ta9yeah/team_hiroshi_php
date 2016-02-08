@@ -144,11 +144,21 @@ class Game{
 
   //match_membersでcancel_flag=1にする
   public function cancel($id){
-
     $sql = 'UPDATE `match_members` SET `cancel_flag`=1, `cancelled`=NOW() WHERE `match_id`='.$id['match_id'].' AND `user_id`='.$id['user_id'].';';
     mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
   }
   
+  public function members($id){
+    $return = array();
+
+    $sql = 'SELECT * FROM `match_members` WHERE match_id='.$id.' AND cancel_flag=0 ;'; 
+    $results = mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+    while ($row = mysqli_fetch_assoc($results)) {
+    $return[] = $row;
+    }
+    return $return;
+
+  }
 
 } 
 ?>

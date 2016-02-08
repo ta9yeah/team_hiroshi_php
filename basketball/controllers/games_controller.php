@@ -71,6 +71,11 @@ switch ($action) {
   case 'recall':
     $games->recall();
     break;
+//参加申請者一覧
+  case 'participant':
+    $games->participant($id);
+    break;
+
 //defalut
   default:
     echo '席に戻ってやり直し';
@@ -219,6 +224,18 @@ switch ($action) {
       // var_dump($_POST);
       $this->Game->cancel($_POST);
       header('Location:show/'.$_POST['match_id']);
+    }
+
+    //match参加者一覧
+    public function participant($id){
+      echo "games_controllerのparticipant";
+
+      $members = $this->Game->members($id);
+      $this->id=$id;
+      $this->view_options = compact('members');
+      $this->action='participant';
+      $this->display();
+
     }
 
     //コメントを書く

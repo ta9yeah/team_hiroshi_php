@@ -232,6 +232,7 @@ foreach ($one_game as $row) {
   </footer>
   <button type="button" class="btn btn-default"><a href="../index"> Return to Index </a></button>
   <button type="button" class="btn btn-default"><a href="../../comments/show/<?php echo $row['id'];?>"> Chat board </a></button>
+  <button type="button" class="btn btn-default"><a href="../../games/participant/<?php echo $row['id'];?>"> Participants </a></button>
 
   <button type="button" class="btn btn-default"><a href="../edit/<?php echo $row['id'];?>"> Edit </a></button>
 <?php
