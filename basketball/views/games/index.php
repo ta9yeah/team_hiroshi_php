@@ -1,4 +1,4 @@
-<?php
+  <?php
 // echo '試合一覧';
 // $all_games = $this->view_options['all_games'];
 //var_dump($all_games);
@@ -26,7 +26,6 @@
 //   echo $row['cancelled'].'<br />';
 //   }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,13 +39,13 @@
     <title>POST ALL</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/basketball/webroot/css/common/bootstrap.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/basketball/webroot/css/common/main.css" rel="stylesheet">
-    <link href="/basketball/webroot/css/common/login.css" rel="stylesheet">
     <link href="/basketball/webroot/css/main_my.css" rel="stylesheet">
     <link href="/basketball/webroot/css/post_all_my.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/header.css" rel="stylesheet">
 
     <link href="/basketball/webroot/css/common/font-awesome.min.css" rel="stylesheet">
 
@@ -66,74 +65,126 @@
 
   <!-- Header Menu  -->
   <header>
-    <div class="row">
-      <div class="col-sm-4 nav-left">
-        <a href="#">SERCH</a>
-      </div>
-      <div class="col-sm-4 nav-center">
-        logo
-        <?php echo $_SESSION['id']; ?>
-      </div>
-      <div class="col-sm-4 nav-right">
-        <a href="#" data-toggle="modal" data-target="#login-modal">LOG IN</a>
-        <a href="../acounts/logout">LOG OUT</a>
-      </div>
-    </div>
-  </header><!-- end header nav -->
-
-  <!-- heaer sort -->
-  <form action="index" method="post">
-    <select name="sort">
-      <option value="1">古い順</option>
-      <option value="2">新しい順</option>
-    </select>
-    <select name="level">
-      <option value="0">特になし</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-    <select name="type">
-      <option value="0">特になし</option>
-      <option value="1">ガチンコ</option>
-      <option value="2">練習試合</option>
-      <option value="3">トレーニング</option>
-    </select>
-    <input type="submit" value="SORT">
-  </form>
-
-  <!-- logIn form -->
-  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
-      <div class="loginmodal-container">
-        <h1>Login to Your Account</h1><br>
-        <form>
-          <input type="text" name="user" placeholder="Username">
-          <input type="password" name="pass" placeholder="Password">
-          <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-        </form>
-        <p>or</p>
-        <div class="row">
-          <div class="col-md-5 social-box">
-            <div class="social-buttons">
-              <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i>Facebook</a>
-            </div>
-          </div>
-          <div class="col-md-5 social-box">
-            <div class="social-buttons">
-              <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i>Twitter</a>
-            </div>
-          </div>
+    <nav class="navbar navbar-default navbar-inverse" role="navigation">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../games/entrance">Mr.Anzai</a>
+          <?php echo $_SESSION['id']; ?>
         </div>
-        <div class="login-help">
-          <a href="#">Register</a> - <a href="#">Forgot Password</a>
-        </div><!-- end login-help -->
-      </div><!-- end loginmodal-container -->
-    </div><!-- end modal-dialog -->
-  </div><!-- end login form -->
-    
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          
+          <form class="navbar-form navbar-left" role="search" action="index" method="post">
+            <div class="form-group">
+              <select name="sort" class="form-control">
+                <option value="1">Older</option>
+                <option value="2">Newer</option>
+              </select>
+              <select name="level" class="form-control">
+                <option value="0">- level select -</option><!-- 1(Beginner),High Beginner,Low Intermediate,Intermediate,Advace(High) -->
+                <option value="1">Beginner</option>
+                <option value="2">High Beginner</option>
+                <option value="3">Low Intermediate</option>
+                <option value="4">Intermediate</option>
+                <option value="5">Advace</option>
+              </select>
+              <select name="type" class="form-control">
+                <option value="0">- match type -</option><!-- 1=serious / 2=friendely / 3=training -->
+                <option value="1">serious</option>
+                <option value="2">friendely</option>
+                <option value="3">training</option>
+              </select>
+              <button type="submit" class="btn btn-success">SORT</button>
+            </div>
+          </form>
+
+          <!-- my profile dropdown menu -->
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown active">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My menu <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Show profile</a></li>
+                <li><a href="#">Match info</a></li>
+
+                <li class="divider"></li>
+                <li><a href="#">Alert</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+         
+            <!-- account アラート -->
+            <li class="alert-success" role="alert">
+              <a href="#" class="alert-link"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login as nickName</a>
+            </li>
+            <li class="alert-warning" role="alert">
+              <a href="#" class="alert-link"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Let's make ur profile</a>
+            </li>
+            <li class="alert-danger" role="alert">
+              <a href="#" class="alert-link"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Sign up !!!</a>
+            </li>
+
+            <!-- login form -->
+            <li class="dropdown">
+              <?php if(!$_SESSION['id']): ?>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+              <?php endif;?>
+              <ul id="login-dp" class="dropdown-menu">
+                <li>
+                  <div class="row">
+                    <div class="col-md-12">
+                      Login via
+                      <div class="social-buttons">
+                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                        <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                      </div>
+                      or
+                      <form class="form" role="form" method="post" action="../acounts/login" accept-charset="UTF-8" id="login-nav">
+                        <div class="form-group">
+                           <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                           <input type="email" name="username" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                        </div>
+                        <div class="form-group">
+                          <label class="sr-only" for="exampleInputPassword2">Password</label>
+                          <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                          <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                        </div>
+                        <div class="form-group">
+                          <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                          <input type="checkbox" name="safe"> keep me logged-in
+                          </label>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="bottom text-center">
+                      New here ? <a href="#"><b>Join Us</b></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+
+            <!-- logout -->
+            <?php if($_SESSION['id']): ?>
+            <li><a href="../acounts/logout" role="button"><b>Logout</b></a></li>
+            <?php endif;?>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </header>
+   
   <!-- POSTS ALL -->
   <section>
   <div id="post-container">
@@ -173,7 +224,7 @@
                   // 1(Beginner), 2(High Beginner), 3(Low Intermediate), 4(Intermediate), 5(Advace(High))
                   switch($value['level']){
                     case '1':
-                      echo '1(Beginner)';
+                      echo 'Beginner';
                       break;
                     case '2':
                       echo 'High Beginner';
@@ -185,7 +236,7 @@
                       echo 'Intermediate';
                       break;
                     case '5':
-                      echo 'Advace(High)';
+                      echo 'Advace';
                       break;
                     default:
                       break;

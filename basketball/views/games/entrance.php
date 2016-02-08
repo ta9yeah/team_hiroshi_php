@@ -1,3 +1,6 @@
+<?php
+var_dump($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,15 +14,15 @@
     <title>Team Hiroshi</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/basketball/webroot/css/common/bootstrap.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/basketball/webroot/css/common/main.css" rel="stylesheet">
-    <link href="/basketball/webroot/css/common/login.css" rel="stylesheet">
-	<link href="/basketball/webroot/css/main_my.css" rel="stylesheet">
-	<link href="/basketball/webroot/css/post_all_my.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/main_my.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/post_all_my.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/header.css" rel="stylesheet">
 
-    <link href="/basketball/webroot/css/common/font-awesome.min.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/common/font-awesome.css" rel="stylesheet">
 
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
@@ -31,58 +34,121 @@
     <![endif]-->
     
     <script src="/basketball/webroot/js/modernizr.custom.js"></script>
-    
   </head>
 
   <body>
 
-	<!-- Header Menu  -->
-	<header>
-		<div class="row">
-			<div class="col-sm-4 nav-left">
-				<a href="#">ABOUT US</a>
-			</div>
-			<div class="col-sm-4 nav-center">
-				LOGO
-			</div>
-			<div class="col-sm-4 nav-right">
-				<a href="#" data-toggle="modal" data-target="#login-modal">LOG IN</a>
-				<a href="../acounts/logout">LOG OUT</a>
-			</div>
+<!-- Header Menu  -->
+  <header>
+    <nav class="navbar navbar-default navbar-inverse" role="navigation">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../games/entrance">Mr.Anzai</a>
+          <?php echo $_SESSION['id']; ?>
+        </div>
 
-		</div>
-	</header><!-- end header nav -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          
+          <!-- my profile dropdown menu -->
+          
+          <ul class="nav navbar-nav navbar-right">
+          <?php if($_SESSION['id']): ?>
+            <li class="dropdown active">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My menu <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Show profile</a></li>
+                <li><a href="#">Match info</a></li>
 
-	<!-- logIn form -->
-	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-		<div class="modal-dialog">
-			<div class="loginmodal-container">
-				<h1>Login to Your Account</h1><br>
-				<form action="../acounts/login" method="post">
-					<input type="text" name="username" placeholder="E-mail">
-					<input type="password" name="password" placeholder="Password">
-					<input type="checkbox" name="save" id="save" value="on"><label for="save">次回からは自動的にログインする</label>
-					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
-				</form>
-				<p>or</p>
-				<div class="row">
-					<div class="col-md-5 social-box">
-						<div class="social-buttons">
-							<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i>Facebook</a>
-						</div>
-					</div>
-					<div class="col-md-5 social-box">
-						<div class="social-buttons">
-							<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i>Twitter</a>
-						</div>
-					</div>
-				</div>
-				<div class="login-help">
-					<a href="#">Register</a> - <a href="#">Forgot Password</a>
-				</div><!-- end login-help -->
-			</div><!-- end loginmodal-container -->
-		</div><!-- end modal-dialog -->
-	</div><!-- end login form -->
+                <li class="divider"></li>
+                <li><a href="#">Alert</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          <?php endif;?>
+
+          <?php if($_SESSION['id']): ?>
+            <!-- account アラート -->
+            <li class="alert-success" role="alert">
+              <a href="#" class="alert-link"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login as nickName</a>
+            </li>
+            <li class="alert-warning" role="alert">
+              <a href="#" class="alert-link"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Let's make ur profile</a>
+            </li>
+            <li class="alert-danger" role="alert">
+              <a href="#" class="alert-link"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Sign up !!!</a>
+            </li>
+          <?php endif;?>
+
+            <!-- login form -->
+            <li class="dropdown">
+              <?php if(!$_SESSION['id']): ?>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+              <?php endif;?>
+              <ul id="login-dp" class="dropdown-menu">
+                <li>
+                  <div class="row">
+                    <div class="col-md-12">
+                      Login via
+                      <div class="social-buttons">
+                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                        <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                      </div>
+                      or
+                      <form class="form" role="form" method="post" action="../acounts/login" accept-charset="UTF-8" id="login-nav">
+                        <div class="form-group">
+                           <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                           <input type="email" name="username" class="form-control" id="exampleInputEmail2" placeholder=
+                           <?php
+                            if($_SESSION['error'] == 'blank'){
+                              echo '"U need E-mail & password" required>';
+                            }elseif($_SESSION['error'] == 'failed'){
+                              echo '"login failed, Try again" required>';
+                            }else{
+                              echo '"E-mail address" required>';
+                            }
+                           ?>
+                        </div>
+                        <div class="form-group">
+                          <label class="sr-only" for="exampleInputPassword2">Password</label>
+                          <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>'
+                          <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                        </div>
+                        <div class="form-group">
+                          <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                        </div>
+                        <div class="checkbox">
+                          <label>
+                          <input type="checkbox" name="safe"> keep me logged-in
+                          </label>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="bottom text-center">
+                      New here ? <a href="#"><b>Join Us</b></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+
+            <!-- logout -->
+            <?php if($_SESSION['id']): ?>
+            <li><a href="../acounts/logout" role="button"><b>Logout</b></a></li>
+            <?php endif;?>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </header>
 	
 	<!-- MAIN IMAGE SECTION -->
 	<div id="headerwrap">
@@ -103,7 +169,7 @@
 							
 							<form class="form" role="form" method="post" action="" accept-charset="UTF-8" id="login-nav">
 								<div class="form-group">
-									<label class="sr-only" for="exampleInputName2">Email address</label>
+									<label class="sr-only" for="exampleInputName2">Your name</label>
 									<input type="name" class="form-control" id="exampleInputName2" placeholder="Your name" required>
 								</div>
 								<div class="form-group">
@@ -183,10 +249,10 @@
 									}
 								?></dd>
 								<dt>match Level :</dt><dd>
-								<?php
+								<?php // 1(Beginner),High Beginner,Low Intermediate,Intermediate,Advace(High)
 									switch($value['level']){
 										case '1':
-											echo '1(Beginner)';
+											echo 'Beginner';
 											break;
 										case '2':
 											echo 'High Beginner';
@@ -198,7 +264,7 @@
 											echo 'Intermediate';
 											break;
 										case '5':
-											echo 'Advace(High)';
+											echo 'Advace';
 											break;
 										default:
 											break;

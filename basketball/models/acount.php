@@ -13,8 +13,7 @@
 
     //login　ログイン 
     public function getacount(){
-      $return = array();
-      if ($_POST['username'] != '' && $_POST['password'] != '') {
+      $return = array();  
       //   $sql = sprintf('SELECT * FROM `users` WHERE `username`="%s" AND `password`="%s"',
       //          mysqli_real_escape_string($this->dbconnect, $_POST['username']),
       //          mysqli_real_escape_string($this->dbconnect, sha1($_POST['password']))
@@ -28,9 +27,6 @@
         $return = $row;
       
         return $return;
-        }else{
-          $error['login'] = 'blank';
-        }
     }//end getacount()
 
   }//end class Acount

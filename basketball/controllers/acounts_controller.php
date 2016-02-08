@@ -41,25 +41,51 @@ class Acountscontroller{
       $_POST['password'] = $_COOKIE['password'];
       $_POST['save'] = 'on';
     }
+    // var_dump($_POST['username']);
+    // var_dump($_POST['password']);
 
-    $record = $this->Acount->getacount();
-    $this->user_options = compact('record');
+    if ($_POST['username'] != '' && $_POST['password'] != '') { //空じゃない時
 
-    // var_dump($this->user_options);
+      $record = $this->Acount->getacount();
+      $this->user_options = compact('record');
+      // var_dump($this->user_options);
 
-    //ログイン成功
-    $_SESSION['id'] = $this->user_options['record']['id'];
-    $_SESSION['time'] = time();
+      if (!$this->user_options['record']) {
+        //error 処理
+        $_SESSION['error'] = 'failed';
+        $uri = $_SERVER['HTTP_REFERER'];
+        header('Location:'.$uri);
 
-    //login クッキー記録
-    if ($_POST['save'] == 'on'){
-      setcookie('username', $_POST['username'], time()+60*60*24*14);
-      setcookie('password', $_POST['password'], time()+60*60*24*14);
+      }else{
+
+        //ログイン成功
+        $_SESSION['id'] = $this->user_options['record']['id'];
+        $_SESSION['time'] = time();
+        
+        //login クッキー記録
+        if ($_POST['save'] == 'on'){
+          setcookie('username', $_POST['username'], time()+60*60*24*14);
+          setcookie('password', $_POST['password'], time()+60*60*24*14);
+        }
+        //画面遷移
+        header('Location:../games/index');
+      }
+    }else{
+      //error 処理
+      $_SESSION['error'] = 'blank';
+      $uri = $_SERVER['HTTP_REFERER'];
+      header('Location:'.$uri);
     }
-
-    //またはheader
-    header('Location:../games/index');
   }
+
+
+
+
+
+
+
+
+
 
   //logout　メソッド
   public function logout(){
