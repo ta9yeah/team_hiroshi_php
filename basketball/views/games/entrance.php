@@ -205,7 +205,7 @@ var_dump($_SESSION);
 
 					</div><!-- end sign up -->
 
-					<i class="fa fa-angle-down"></i>
+					<a href="../games/index" class="btn btn-primary btn-lg" role="button"><i class="fa fa-dribbble"></i> Show match</a>
 				</div>
 			</div><!-- row -->
 		</div><!-- /container -->

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.png">
 
-    <title>POST ALL</title>
+    <title>MATCH ALL</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/basketball/webroot/css/bootstrap.css" rel="stylesheet">
@@ -92,7 +91,7 @@
                 <li class="divider"></li>
                 <li><a href="#">Alert</a></li>
                 <li class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="../games/create">Match Create</a></li>
               </ul>
             </li>
 
