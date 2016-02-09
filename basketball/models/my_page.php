@@ -54,6 +54,25 @@ class My_page{
     return $return;
   }
 
+  //アカウント作成
+  public function signup($box6){
+    //INSERTのSQL文
+    $sql = 'INSERT INTO `users` SET   username = "'.$box6['email'].'", 
+                                      password="'.$box6['password'].'",
+                                      created=NOW();';
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+
+    $name = $box6['name']; 
+    $user_id = mysqli_insert_id($this->dbconnect);
+    // var_dump($user_id);
+    $sql = 'INSERT INTO `user_profiles` SET user_id='.$user_id.',name="'.$name.'",created=NOW();';
+    mysqli_query($this->dbconnect,$sql) or die(mysqli_error($this->dbconnect));
+
+    // $user_id2 = $user_id;
+    // return $user_id2 =$user_id;
+    // var_dump($user_id2);
+
+  }
 }
 
 
