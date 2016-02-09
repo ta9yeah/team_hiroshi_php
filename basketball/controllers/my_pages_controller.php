@@ -1,6 +1,8 @@
 <?php
+session_start();
 
 require('models/'.changesingular($resource).'.php');
+
 
 $my_pages = new My_pagescontroller();
 
@@ -12,7 +14,7 @@ switch ($action) {
     break;
   //マイプロフィール編集
   case 'edit':
-    $my_pages->edit($id);
+    $my_pages->edit();
     break;
   //マイアラート表示
   case 'alert':
@@ -23,8 +25,11 @@ switch ($action) {
     $my_pages->schedule();
     break;
   case 'edit_do':
-    $my_pages->edit_do($id);
+    $my_pages->edit_do();
     break;
+  case 'acount':
+    $my_pages->acount();
+      break;
   //default
   default:
     echo '席に戻ってやり直し';
@@ -44,14 +49,15 @@ switch ($action) {
     private $action = '';
     private $view_options = '';
     private $My_page = '';
-    private $id =-1;
+    // private $id =-1;
     //$user_idというグローバル変数を作る必要がある
+    private $user_id = '';
 
     //コンストラクタ
     public function __construct(){
       $my_page = new My_page();
-      $this->resource = 'my_pages';
-      $this->action = 'show';
+      // $this->resource = 'my_pages';
+      // $this->action = 'show';
       $this->view_options = array();
       $this->My_page = $my_page;
     }
@@ -59,23 +65,23 @@ switch ($action) {
     //マイプロフィール表示
     public function show(){
       // user_idはサインアップの時に作られるので、今はとりあえず4とする
-      $user_id = 4;
+      // $user_id = 4;
       $one_user = $this->My_page->view($user_id);
       $this->view_options = compact('one_user');
+      $this->action="show";
       $this->display();
     }
 
     //マイプロフィール編集
-    public function edit($id){
-      $user_id = 4;
-      $this->id=$id;
+    public function edit(){
+      // $user_id = 4;
       $one_user = $this->My_page->view($user_id);
       $this->view_options = compact('one_user');
       $this->action="edit";
       $this->display();
     }
 
-    public function edit_do($id){
+    public function edit_do(){
        $box5 = $_POST;
        $this->My_page->update($box5);
       //マイプロフィール表示に戻る
@@ -85,7 +91,7 @@ switch ($action) {
     //マイスケジュール表示
     public function schedule(){
       echo "schedule";
-      $user_id = 4;
+      // $user_id = 4;
       $schedule = $this->My_page->plan($user_id);
       $this->view_options = compact('schedule');
       $this->action = "schedule";
@@ -101,6 +107,20 @@ switch ($action) {
       $this->display();
     }
 
+    //アカウント作成
+    public function acount(){
+
+      $box6 = $_POST;
+       // var_dump($box6);
+      $this->My_page->signup($box6);
+      // $this->action = "show";
+      // $this->display();
+      // $this->user_id = $user_id2;
+      // var_dump($user_id);
+       header("location:show");
+       // header("location:../games/index");
+
+    }
 
     private function display(){
       require('/var/www/html/basketball/views/layout/application.php');
