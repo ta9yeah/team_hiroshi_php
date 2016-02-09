@@ -13,6 +13,9 @@ switch($action){
   case 'logout':
     $acountCont->logout();
     break;
+  case 'signup':
+    $acountCont->signup();
+    break;
   default:
     echo 'error';
     break;
@@ -78,15 +81,6 @@ class Acountscontroller{
     }
   }
 
-
-
-
-
-
-
-
-
-
   //logout　メソッド
   public function logout(){
     //　セッション情報を削除
@@ -105,6 +99,16 @@ class Acountscontroller{
     header('Location:../games/entrance');
     exit();
     }
+  }
+
+  //signup メソッド
+  public function signup(){
+    $this->Acount->makeacount($_POST);
+
+    //ログイン成功
+    $_SESSION['id'] = $this->user_options['record']['id'];
+    $_SESSION['time'] = time();
+
   }
 
 function changesingular($value){

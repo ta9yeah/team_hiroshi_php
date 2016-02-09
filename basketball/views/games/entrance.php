@@ -1,6 +1,3 @@
-<?php
-var_dump($_SESSION);
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -167,24 +164,24 @@ var_dump($_SESSION);
 					<div class="row signup"><!-- sign up -->
 						<div class="col-md-5">
 							
-							<form class="form" role="form" method="post" action="" accept-charset="UTF-8" id="login-nav">
-								<div class="form-group">
+							<form class="form" role="form" method="post" action="../acount/signup" accept-charset="UTF-8" id="login-nav">
+								<!-- <div class="form-group">
 									<label class="sr-only" for="exampleInputName2">Your name</label>
 									<input type="name" class="form-control" id="exampleInputName2" placeholder="Your name" required>
-								</div>
+								</div> -->
 								<div class="form-group">
 									<label class="sr-only" for="exampleInputEmail2">Email address</label>
-									<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+									<input type="email" name=""class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
 								</div>
 								<div class="form-group">
 									<label class="sr-only" for="exampleInputPassword2">Password</label>
-									<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+									<input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
 								</div>
 								<div class="form-group">
 									<button type="submit" class="btn btn-primary btn-block">Create account</button>
 								</div>
 								<div class="checkbox">
-									<input type="checkbox" id="keep-login">
+									<input type="checkbox" id="keep-login" name="safe">
 									<label for="keep-login">keep me logged-in</label>
 								</div>
 							</form>
@@ -205,7 +202,7 @@ var_dump($_SESSION);
 
 					</div><!-- end sign up -->
 
-					<i class="fa fa-angle-down"></i>
+					<a class="btn btn-primary" href="../games/index" role="button"><i class="fa fa-dribbble"></i> Show matches</a>
 				</div>
 			</div><!-- row -->
 		</div><!-- /container -->
