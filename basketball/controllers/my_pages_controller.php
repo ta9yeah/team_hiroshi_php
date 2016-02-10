@@ -56,8 +56,8 @@ switch ($action) {
     //コンストラクタ
     public function __construct(){
       $my_page = new My_page();
-      // $this->resource = 'my_pages';
-      // $this->action = 'show';
+      $this->resource = 'my_pages';
+      $this->action = 'show';
       $this->view_options = array();
       $this->My_page = $my_page;
     }
@@ -109,16 +109,12 @@ switch ($action) {
 
     //アカウント作成
     public function acount(){
-
       $box6 = $_POST;
-       // var_dump($box6);
-      $this->My_page->signup($box6);
-      // $this->action = "show";
-      // $this->display();
-      // $this->user_id = $user_id2;
+      $user_id = $this->My_page->signup($box6);
+      $this->action = "show";
+      $this->display();
       // var_dump($user_id);
-       header("location:show");
-       // header("location:../games/index");
+       // header("location:show");
 
     }
 
