@@ -13,6 +13,9 @@ switch($action){
   case 'logout':
     $acountCont->logout();
     break;
+  case 'signup':
+    $acountCont->signup();
+    break;
   default:
     echo 'error';
     break;
@@ -78,15 +81,6 @@ class Acountscontroller{
     }
   }
 
-
-
-
-
-
-
-
-
-
   //logout　メソッド
   public function logout(){
     //　セッション情報を削除
@@ -104,8 +98,25 @@ class Acountscontroller{
 
     header('Location:../games/entrance');
     exit();
-    }
   }
+
+  //signup メソッド
+  public function signup(){
+    $record = $this->Acount->makeacount($_POST);
+    $this->user_options = compact('record');
+    //ログイン成功
+    $_SESSION['id'] = $this->user_options['record']['id'];
+    $_SESSION['time'] = time();
+
+    //login クッキー記録
+    if ($_POST['save'] == 'on'){
+      setcookie('username', $_POST['username'], time()+60*60*24*14);
+      setcookie('password', $_POST['password'], time()+60*60*24*14);
+    }
+    //画面遷移
+    header('Location:../games/index');
+  }
+}//end class Acountscontroller
 
 function changesingular($value){
   //複数から単数形へ変換

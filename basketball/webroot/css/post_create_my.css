@@ -5,37 +5,15 @@ body{
 header.major{
 	color: #fff;
 }
-/*.auth .auth-box{
-	background: rgba( 255, 255, 255, 1);
-
-
-}*/
-/* form */
-/*#big-form{
-	color: rgba( 34, 34, 34, 1);
-} 
-*/
-.form-control{
-	background-color: rgba( 255, 255, 255, 0);
-	color: #FFF;
-	/*border: 0 0 1px 0 dotted #fff;
-	border-width: 0 0 1px 0;*/
-	border-style: dotted;
-	border-radius: 0;
+.form-group{
+  padding-bottom: 12px;
 }
-/*
-.auth form input[type="text"],
-.auth form input[type="password"],
-.auth form input[type="email"],
-.auth form input[type="search"]{
-  border:none;
-  padding:10px 0 10px 0;
-  background-color: rgba(255, 255, 255, 0)!important;
-  background: rgba(255, 255, 255, 0);
-  color: rgba( 34, 34, 34, 1);
-  font-size:16px;
-  border-bottom:1px dotted #fff;
-  border-radius:0;
-  box-shadow:none!important;
-  height:auto;
-  }*/
+.form-group label{
+	color: #666;
+}
+.form-group div > *{
+ color: #999;
+}
+.form-group div .submit-button{
+  color: #fff;
+}
