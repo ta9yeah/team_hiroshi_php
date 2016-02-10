@@ -1,6 +1,3 @@
-<?php
-var_dump($_SESSION);
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -168,10 +165,10 @@ var_dump($_SESSION);
 						<div class="col-md-5">
 							
 							<form class="form" role="form" method="post" action="../acounts/signup" accept-charset="UTF-8" id="login-nav">
-								<!-- <div class="form-group">
+								<div class="form-group">
 									<label class="sr-only" for="exampleInputName2">Your name</label>
 									<input type="name" class="form-control" id="exampleInputName2" placeholder="Your name" required>
-								</div> -->
+								</div>
 								<div class="form-group">
 									<label class="sr-only" for="exampleInputEmail2">Email address</label>
 									<input type="email" name="username" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
@@ -339,5 +336,8 @@ var_dump($_SESSION);
 		});
 	});
 </script>
+<?php
+var_dump($_SESSION);
+?>
   </body>
 </html>

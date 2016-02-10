@@ -8,10 +8,12 @@ header.major{
 .form-group{
   padding-bottom: 12px;
 }
-
 .form-group label{
 	color: #666;
 }
 .form-group div > *{
  color: #999;
+}
+.form-group div .submit-button{
+  color: #fff;
 }

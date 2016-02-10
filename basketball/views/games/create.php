@@ -186,10 +186,10 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label" for="deadline_date">Dead line</label>  
                   <div class="col-sm-3">
-                    <input id="deadline_date" name="deadline_date" class="form-control input-md" type="date" step="900" value="" required>
+                    <input id="deadline_date" name="deadline_date" class="form-control input-md" type="date" value="" required>
                   </div>
                   <div class="col-sm-3">
-                    <input id="deadline_time" name="deadline_time" class="form-control input-md" type="time" step="900" value="" required>
+                    <input id="deadline_time" name="deadline_time" class="form-control input-md" type="time" step="900" value="10:00" required>
                   </div>
                 </div>
 
@@ -242,18 +242,18 @@
                 </div>
 
                 <!-- how many player -->
-                <!-- <div class="form-group">
-                  <label class=" control-label" for="people_min">How many player do you want?</label>  
-                  <div class="">
-                    <input id="people_min" name="people_min" class="form-control input-md" type="number" min="1" max="500" placeholder="how many?" value="12:00" required>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label" for="people_min">How many player do you need?</label>  
+                  <div class="col-sm-7">
+                    <input id="people_min" name="people_min" class="form-control input-md" type="number" min="1" max="500" placeholder="min people?" value="12:00" required>
                   </div>
-                </div> -->
+                </div>
 
                 <!-- how many player -->
                 <div class="form-group">
                   <label class="col-sm-3 control-label" for="people_max">How many player<br>do you want?</label>  
                   <div class="col-sm-7">
-                    <input id="people_max" name="people_max" class="form-control input-md" type="number" min="1" max="500" placeholder="how many?" value="12:00" required>
+                    <input id="people_max" name="people_max" class="form-control input-md" type="number" min="1" max="500" placeholder="how many do u want?" value="12:00" required>
                   </div>
                 </div>
 
@@ -317,7 +317,7 @@
 
                 <div class="form-group">
                   <div class="col-sm-3 col-sm-ofset-4">
-                    <input type="submit" class="btn btn-primary" value="CREATE MATCH">
+                    <input type="submit" class="submit-button btn btn-primary" value="CREATE MATCH">
                   </div>
                 </div>
 
