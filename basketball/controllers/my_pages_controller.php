@@ -111,6 +111,7 @@ switch ($action) {
     public function acount(){
       $box6 = $_POST;
       $user_id = $this->My_page->signup($box6);
+      $this->user_id = $user_id;
       $this->action = "show";
       $this->display();
       // var_dump($user_id);
