@@ -10,7 +10,7 @@ switch ($action) {
   //マイプロフィール表示
   case 'show':
   //引数にuserのidの値を入れる
-    $my_pages->show();
+    $my_pages->show($_SESSION['id']);
     break;
   //マイプロフィール編集
   case 'edit':
@@ -63,9 +63,9 @@ switch ($action) {
     }
 
     //マイプロフィール表示
-    public function show(){
+    public function show($master_id){
       // user_idはサインアップの時に作られるので、今はとりあえず4とする
-      // $user_id = 4;
+      $user_id = $master_id;
       $one_user = $this->My_page->view($user_id);
       $this->view_options = compact('one_user');
       $this->action="show";
@@ -111,14 +111,16 @@ switch ($action) {
     public function acount(){
 
       $box6 = $_POST;
-       // var_dump($box6);
+      // var_dump($box6);
       $this->My_page->signup($box6);
       // $this->action = "show";
       // $this->display();
       // $this->user_id = $user_id2;
       // var_dump($user_id);
-       header("location:show");
-       // header("location:../games/index");
+      // $_SESSION['id'] = $this->My_page->singup();
+      // var_dump($_SESSION['id']);
+      // header("location:show");
+      // header("location:../games/index");
 
     }
 

@@ -109,6 +109,7 @@ $box = $_POST;
 
   <p>注意事項</p>
 <form action="create2" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="master_id" value="<?php echo $box['master_id']?>" />
   <input type="hidden" name="date" value="<?php echo $box['date'];?>"　/>
   <input type="hidden" name="start_time" value="<?php echo $box['start_time'];?>" />
   <input type="hidden" name="end_time" value="<?php echo $box['end_time'];?>" />
