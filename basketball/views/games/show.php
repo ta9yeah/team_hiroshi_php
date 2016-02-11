@@ -294,7 +294,7 @@ foreach ($one_game as $row) {
                 }
         );
     }
-    drawMap(<?php echo $row['address']; ?>);
+    drawMap('<?php echo $row['address']; ?>');
 </script>
 <script>
   new AnimOnScroll( document.getElementById( 'grid' ), {
