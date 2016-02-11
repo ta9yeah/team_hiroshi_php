@@ -197,7 +197,7 @@
                 <div class="form-group">
                   <label class="col-sm-3 control-label" for="match_title">Match title</label>
                   <div class="col-sm-7">
-                    <input id="match_title" name="titile" class="form-control input-md" type="text" placeholder="match title" required>
+                    <input id="match_title" name="title" class="form-control input-md" type="text" placeholder="match title" required>
                   </div>
                 </div>
 
@@ -317,6 +317,7 @@
 
                 <div class="form-group">
                   <div class="col-sm-3 col-sm-ofset-4">
+                    <input type="hidden" name="master_id" value="<?php echo $_SESSION['id']; ?>" />
                     <input type="submit" class="submit-button btn btn-primary" value="CREATE MATCH">
                   </div>
                 </div>

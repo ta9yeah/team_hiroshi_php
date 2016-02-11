@@ -3,6 +3,32 @@
 $one_game = $this->view_options['one_game'];
 $check = $this->view_options['check'];
 
+//var_dump($check);
+
+foreach ($one_game as $row) {
+  // echo $row['id'].'<br />';
+  // echo $row['master_id'].'<br />';
+  // echo $row['date'].'<br />';
+  // echo $row['start_time'].'<br />';
+  // echo $row['end_time'].'<br />';
+  // echo $row['deadline_date'].'<br />';
+  // echo $row['deadline_time'].'<br />';
+  // echo $row['title'].'<br />';
+  // echo $row['comment'].'<br />';
+  // echo $row['type'].'<br />';
+  // echo $row['level'].'<br />';
+  // echo $row['people_min'].'<br />';
+  // echo $row['people_max'].'<br />';
+  // echo $row['place_type'].'<br />';
+  // echo $row['place_name'].'<br />';
+  // echo $row['address'].'<br />';
+  // echo $row['address_url'].'<br />';
+  // echo $row['created'].'<br />';
+  // echo $row['status_flag'].'<br />';
+  // echo $row['modified'].'<br />';
+  // echo $row['cancelled'].'<br />';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,10 +47,10 @@ $check = $this->view_options['check'];
     <link href="/basketball/webroot/css/common/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <!-- <link href="/basketball/webroot/css/common/main.css" rel="stylesheet"> -->
-    <!-- <link href="/basketball/webroot/css/main_my.css" rel="stylesheet"> -->
-    <link href="/basketball/webroot/css/header.css" rel="stylesheet">
-    <!-- <link href="/basketball/webroot/css/post_all.css" rel="stylesheet"> -->
+    <link href="/basketball/webroot/css/common/main.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/common/login.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/main_my.css" rel="stylesheet">
+    <link href="/basketball/webroot/css/post_all.css" rel="stylesheet">
 
     <link href="/basketball/webroot/css/common/font-awesome.min.css" rel="stylesheet">
 
@@ -44,142 +70,67 @@ $check = $this->view_options['check'];
   <body>
   <!-- Header Menu  -->
   <header>
-    <nav class="navbar navbar-default navbar-inverse" role="navigation">
-      <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+    <div class="row">
+      <div class="col-sm-4 nav-left">
+        <a href="#">SEARCH</a>
+      </div>
+      <div class="col-sm-4 nav-center">
+        LOGO
+      </div>
+      <div class="col-sm-4 nav-right">
+        <!-- <a href="#" data-toggle="modal" data-target="#login-modal">LOG IN</a> -->
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Dropdown
+            <span class="caret"></span>
           </button>
-          <a class="navbar-brand" href="../../games/entrance">Mr.Anzai</a>
-          <?php echo $_SESSION['id']; ?>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          
-          <form class="navbar-form navbar-left" role="search" action="index" method="post">
-            <div class="form-group">
-              <select name="sort" class="form-control">
-                <option value="1">Older</option>
-                <option value="2">Newer</option>
-              </select>
-              <select name="level" class="form-control">
-                <option value="0">- level select -</option><!-- 1(Beginner),High Beginner,Low Intermediate,Intermediate,Advace(High) -->
-                <option value="1">Beginner</option>
-                <option value="2">High Beginner</option>
-                <option value="3">Low Intermediate</option>
-                <option value="4">Intermediate</option>
-                <option value="5">Advace</option>
-              </select>
-              <select name="type" class="form-control">
-                <option value="0">- match type -</option><!-- 1=serious / 2=friendely / 3=training -->
-                <option value="1">serious</option>
-                <option value="2">friendely</option>
-                <option value="3">training</option>
-              </select>
-              <button type="submit" class="btn btn-success">SORT</button>
-            </div>
-          </form>
-
-          
-          <!-- my profile dropdown menu -->
-          <ul class="nav navbar-nav navbar-right">
-          <?php if($_SESSION['id']): ?> 
-            <li class="dropdown active">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My menu <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Show profile</a></li>
-                <li><a href="#">Match info</a></li>
-
-                <li class="divider"></li>
-                <li><a href="#">Alert</a></li>
-                <li class="divider"></li>
-                <li><a href="../games/create">Match Create</a></li>
-              </ul>
-            </li>
-
-            <!-- account アラート -->
-            <li class="alert-success" role="alert">
-              <a href="#" class="alert-link"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login as nickName</a>
-            </li>
-            <li class="alert-warning" role="alert">
-              <a href="#" class="alert-link"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Let's make ur profile</a>
-            </li>
-            <li class="alert-danger" role="alert">
-              <a href="#" class="alert-link"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Sign up !!!</a>
-            </li>
-            <?php endif;?>
-
-            <!-- login form -->
-            <li class="dropdown">
-              <?php if(!$_SESSION['id']): ?>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-              <?php endif;?>
-              <ul id="login-dp" class="dropdown-menu">
-                <li>
-                  <div class="row">
-                    <div class="col-md-12">
-                      Login via
-                      <div class="social-buttons">
-                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-                        <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-                      </div>
-                      or
-                      <form class="form" role="form" method="post" action="../acounts/login" accept-charset="UTF-8" id="login-nav">
-                        <div class="form-group">
-                           <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                           <input type="email" name="username" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
-                        </div>
-                        <div class="form-group">
-                          <label class="sr-only" for="exampleInputPassword2">Password</label>
-                          <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                          <div class="help-block text-right"><a href="">Forget the password ?</a></div>
-                        </div>
-                        <div class="form-group">
-                          <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                        </div>
-                        <div class="checkbox">
-                          <label>
-                          <input type="checkbox" name="safe"> keep me logged-in
-                          </label>
-                        </div>
-                      </form>
-                    </div>
-                    <div class="bottom text-center">
-                      New here ? <a href="#"><b>Join Us</b></a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </li>
-
-            <!-- logout -->
-            <?php if($_SESSION['id']): ?>
-            <li><a href="../acounts/logout" role="button"><b>Logout</b></a></li>
-            <?php endif;?>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-  </header>
+        </div>
+      </div>
+    </div>
+  </header><!-- end header nav -->
+
+  <!-- logIn form -->
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+      <div class="loginmodal-container">
+        <h1>Login to Your Account</h1><br>
+        <form>
+          <input type="text" name="user" placeholder="Username">
+          <input type="password" name="pass" placeholder="Password">
+          <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+        </form>
+        <p>or</p>
+        <div class="row">
+          <div class="col-md-5 social-box">
+            <div class="social-buttons">
+              <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i>Facebook</a>
+            </div>
+          </div>
+          <div class="col-md-5 social-box">
+            <div class="social-buttons">
+              <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i>Twitter</a>
+            </div>
+          </div>
+        </div>
+        <div class="login-help">
+          <a href="#">Register</a> - <a href="#">Forgot Password</a>
+        </div><!-- end login-help -->
+      </div><!-- end loginmodal-container -->
+    </div><!-- end modal-dialog -->
+  </div><!-- end login form -->
     
   <!-- POSTS ALL -->
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-lg-offset-3">
         <section>
-        <?php foreach ($one_game as $row): ?>
-        <ul class="nav nav-tabs">
-          <li role="presentation"><a href="../index">Return to Index</a></li>
-          <li role="presentation" class="active"><a>Match deatail</a></li>
-          <li role="presentation"><a href="../../comments/show/<?php echo $row['id'];?>">Chat board</a></li>
-          <li role="presentation"><a href="../../games/participant/<?php echo $row['id'];?>">Participants</a></li>
-          <li role="presentation"><a href="../edit/<?php echo $row['id'];?>">Edit</a></li>
-        </ul>  
         <div id="post-container">
 
           <div>
@@ -216,7 +167,6 @@ $check = $this->view_options['check'];
                   <dt>time limit for application :</dt><dd><?php echo $row['deadline_date'].' ~'.$row['deadline_time']; ?></dd>
                 </dl>
                 <!-- <button type="button" class="btn btn-default"><a href="#">>> Join </a></button> -->
-              <?php endforeach; ?>
 
               <?php
               if ($check == 'true') {
@@ -281,10 +231,11 @@ $check = $this->view_options['check'];
       </footer>
     </div><!-- Social Footer -->
   </footer>
-  <!-- <button type="button" class="btn btn-default"><a href="../index"> Return to Index </a></button> -->
-  <!-- <button type="button" class="btn btn-default"><a href="../../comments/show/<?php //echo $row['id'];?>"> Chat board </a></button> -->
-  <!-- <button type="button" class="btn btn-default"><a href="../../games/participant/<?php //echo $row['id'];?>"> Participants </a></button> -->
-  <!-- <button type="button" class="btn btn-default"><a href="../edit/<?php //echo $row['id'];?>"> Edit </a></button> -->
+  <button type="button" class="btn btn-default"><a href="../index"> Return to Index </a></button>
+  <button type="button" class="btn btn-default"><a href="../../comments/show/<?php echo $row['id'];?>"> Chat board </a></button>
+  <button type="button" class="btn btn-default"><a href="../../games/participant/<?php echo $row['id'];?>"> Participants </a></button>
+
+  <button type="button" class="btn btn-default"><a href="../edit/<?php echo $row['id'];?>"> Edit </a></button>
 <?php
   if ($row['id'] == $row['master_id']){
     echo '<a href="../destroy/'.$row['id'].'" onclick="game_delete('.$row['id'].')">試合削除</a>';
@@ -343,7 +294,7 @@ $check = $this->view_options['check'];
                 }
         );
     }
-    drawMap('<?php echo $row['address']; ?>');
+    drawMap(<?php echo $row['address']; ?>);
 </script>
 <script>
   new AnimOnScroll( document.getElementById( 'grid' ), {

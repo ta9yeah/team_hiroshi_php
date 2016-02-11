@@ -162,12 +162,12 @@ switch ($action) {
 
     //試合を作成する
     public function create2(){
-      $box2 = $_POST; 
-      //var_dump($box2);
+      $box2 = $_POST;
+      // var_dump($box2);
       //insert メソッドの呼び出し
       $this->Game->insert($box2);
       //試合一覧に飛ぶ
-      header('Location:index');
+      header('Location:../games/index');
     }
 
     //編集ページを表示

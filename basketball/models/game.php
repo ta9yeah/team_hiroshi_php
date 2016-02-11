@@ -77,7 +77,7 @@ class Game{
   //コメントを書く
   public function insert($box2){
     //INSERTのSQL文
-    $sql = 'INSERT INTO `matches` SET master_id=1,date="'.$box2['date'].'",
+    $sql = 'INSERT INTO `matches` SET master_id="'.$box2['master_id'].'",date="'.$box2['date'].'",
                                       start_time="'.$box2['start_time'].'", 
                                       end_time="'.$box2['end_time'].'",
                                       deadline_date="'.$box2['deadline_date'].'",
