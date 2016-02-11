@@ -1,8 +1,8 @@
 <?php
 session_start();
 
+require('const.php');
 require('models/'.changesingular($resource).'.php');
-
 
 $my_pages = new My_pagescontroller();
 
@@ -120,7 +120,7 @@ switch ($action) {
     }
 
     private function display(){
-      require('/var/www/html/basketball/views/layout/application.php');
+      require(DOCUMENT_DIR . '/basketball/views/layout/application.php');
     }
   }
 
