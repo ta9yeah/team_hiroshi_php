@@ -5,7 +5,8 @@
 
     public function __construct(){
       //+++ DB接続 +++//
-      require('/var/www/html/basketball/dbconnect.php');
+      require('const.php');
+      require(DOCUMENT_DIR . '/basketball/dbconnect.php');
       //初期化処理
       $this->dbconnect = $db;
       // var_dump($this->dbconnect);

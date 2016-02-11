@@ -1,5 +1,5 @@
 <?php
-
+require('const.php');
 require('models/'.changesingular($resource).'.php');
 
 session_start();
@@ -240,7 +240,8 @@ switch ($action) {
 
     //コメントを書く
     private function display(){
-      require('/var/www/html/basketball/views/layout/application.php');
+      require(DOCUMENT_DIR . '/basketball/views/layout/application.php');
+    
     }
 
   }

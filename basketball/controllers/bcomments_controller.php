@@ -1,5 +1,5 @@
 <?php
-
+require('const.php');
 require('models/'.changesingular($resource).'.php');
 
 session_start();
@@ -49,8 +49,8 @@ switch ($action) {
   
   function changesingular($value){
     //複数から単数形へ変換
-    if ($value =='comments') {
-      return 'comment';
+    if ($value =='bcomments') {
+      return 'bcomment';
     }
   }
 
@@ -66,7 +66,7 @@ switch ($action) {
     //コンストラクタ
     public function __construct(){
        $comment = new Comment();
-       $this->resource='comments';
+       $this->resource='bcomments';
        $this->action='index';
        $this->view_options = array();
        $this->Comments = $comment;
@@ -130,7 +130,7 @@ switch ($action) {
     }
 
     private function display(){
-      require('/var/www/html/basketball/views/layout/application.php');
+      require(DOCUMENT_DIR . '/basketball/views/layout/application.php');
     }
 
   }
